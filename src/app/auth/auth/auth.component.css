@@ -1,0 +1,46 @@
+
+
+
+.card {
+
+background-color:#343a401f;
+text-align: center;
+
+}
+
+.border-primary {
+  border-width:2px;
+}
+
+.card-header a {
+
+  color: white;
+  font-weight: bold;
+background-color:#007bffc7;
+  width:100%;
+
+  text-decoration: none;
+  display: inline-block;
+  padding-top:5px;
+  padding-bottom: 5px;
+  padding-left:0;
+  padding-right:0;
+
+}
+
+.card-header a:hover{
+  background-color:#014894;
+}
+
+
+
+
+.card-header {
+
+  color:white;
+  padding:0;
+}
+
+ a:active,a:active{
+  background-color:#014894;
+}

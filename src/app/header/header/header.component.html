@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+  <ul class="navbar-nav">
+  <!--  <li class="nav-item active" style="padding-right:35px">
+        <a  style="cursor: pointer;" class="btn-expand-collapse"><i class="fa fa-bars" style="color:white;"></i></a>
+      </li>-->
+      <li class="nav-item side" *ngIf="isAuthenticated && isPanelLoaded">
+          <a class="nav-link" href="#sidebar" data-toggle="collapse"><i class="fa fa-navicon fa-lg"></i></a>
+        </li>
+    <li class="nav-item ">
+   <a class="nav-link" >
+    <span style="Font-size:25px;color:#007bff;"><i class="fa fa-bar-chart"></i>&nbsp;<span style="color:rgba(255, 255, 255, 0.856)">Report</span>Viso</span>
+    </a>
+    </li>
+
+    <li class="nav-item welcome" *ngIf="!isAuthenticated">
+        <a class="nav-link" [routerLink]="''" >
+        About Us
+         </a>
+         </li>
+         <li class="nav-item  welcome " *ngIf="!isAuthenticated">
+            <a class="nav-link" [routerLink]="''">
+            Contact Us
+             </a>
+             </li>
+    <li class="nav-item  welcome" *ngIf="isAuthenticated">
+      <a class="nav-link" [routerLink]="'/main/home'">
+      Home
+       </a>
+       </li>
+       <li class="nav-item welcome" *ngIf="isAuthenticated">
+        <a class="nav-link" [routerLink]="'/main/reportList'">
+        Reports
+         </a>
+         </li>
+  </ul>
+  <ul class="navbar-nav ml-auto">
+   <!--   <li class="nav-item">
+          <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+             <i class="fa fa-user-circle-o" style="font-size:19px"></i>
+            </button>
+            <div class="dropdown-menu">
+              <a style="font-size:13px;cursor: pointer;" class="dropdown-item">Logout</a>
+            </div>
+          </div>
+        </li>-->
+        <li class="nav-item welcome" *ngIf="!isAuthenticated">
+            <button  type="button" class="btn btn-outline-primary" (click)="loginForm()" >Login</button>
+          </li>
+        <li class="nav-item welcome" *ngIf="!isAuthenticated">
+            <button  type="button" class="btn btn-primary " (click)="signupForm()" >Sign up</button>
+          </li>
+        <li class="nav-item welcome" *ngIf="isAuthenticated">
+            Welcome to Report Viso
+          </li>
+        <li class="nav-item dropdown no-arrow" *ngIf="isAuthenticated">
+
+            <a class="nav-link dropdown-toggle" role="button" id="navbardrop" data-toggle="dropdown">
+             <i class="fa fa-user-circle-o fa-fw" style="font-size:19px;padding-right: 2px;cursor: pointer;"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" style="font-size: 12px;cursor: pointer;" (click)="onLogOut()">Logout</a>
+            </div>
+          </li>
+    </ul>
+
+</nav>
+<!--
+<nav class="navbar-primary">
+<ul class="navbar-primary-menu">
+  <li>
+    <a style="cursor: pointer;"><span class="nav-label">Summary Report</span></a>
+  </li>
+  <li>
+    <a style="cursor: pointer;"><span class="nav-label">Detailed Report</span></a>
+  </li>
+  <li>
+    <a style="cursor: pointer;"><span class="nav-label">2D Viewer</span></a>
+  </li>
+  <li>
+    <a style="cursor: pointer;"><span class="nav-label">Error Statistics</span></a>
+  </li>
+
+</ul>
+</nav>
+-->
+

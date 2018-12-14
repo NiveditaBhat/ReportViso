@@ -1,0 +1,25 @@
+.btn{
+  background-color:#014894;
+}
+.btn:hover {
+  background-color:#014894;
+}
+
+.helpblock {
+  color:#D80000 ;
+  text-align: left;
+  display: block;
+  font-size:14px;
+  font-weight:bold;
+ padding-bottom:8px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid #D80000  ;
+  box-shadow: 0 0 10px #9ecaed;
+}
+
+.redBorder {
+  border: 1px solid #D80000  ;
+  box-shadow: 0 0 10px #9ecaed;
+}

@@ -1,0 +1,75 @@
+
+
+
+
+.card {
+  background-color:#343a401f;
+
+
+  }
+
+  hr {
+    margin: 0em;
+    border-color:white;
+  }
+
+  table.dataTable thead {background-color:grey}
+
+  .carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+  .card-header a {
+
+    color: white;
+    font-weight: bold;
+  background-color:#007bffc7;
+    width:100%;
+
+    text-decoration: none;
+    display: inline-block;
+    padding-top:5px;
+    padding-bottom: 5px;
+    padding-left:0;
+    padding-right:0;
+
+  }
+
+  .card-header a:hover{
+    background-color:#014894;
+
+  }
+
+  .file {
+    visibility: hidden;
+    position: absolute;
+  }
+
+
+  .card-header {
+text-align: center;
+    color:#343a40;
+
+
+  }
+
+  .card-body {
+    background-color:rgb(243, 241, 241);
+  }
+
+  .form-group {
+    padding-left:10px;
+
+  }
+
+  .vl {
+    border-left: 6px solid grey;
+    height: 250px;
+  }
+
+.border {
+  padding:7px;
+  color:black;
+}
+

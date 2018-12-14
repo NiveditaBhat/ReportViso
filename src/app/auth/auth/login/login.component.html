@@ -1,0 +1,36 @@
+
+<form #loginForm="ngForm" (submit)="onLogin(loginForm)">
+    <div class="form-group">
+  <span style="font-size:20px;padding:10px; font-weight: bold;color:#343a40">Login to ReportViso</span>
+  </div>
+    <div class="form-group">
+        <div class="input-group mb-3">
+            <input class="form-control" type="text" placeholder="Email address" name="email" email ngModel #email="ngModel" required>
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
+            </div>
+          </div>
+          <span class="helpblock" *ngIf="email.touched && !email.valid">Please Enter a Valid Email</span>
+    </div>
+    <div class="form-group">
+
+        <div class="input-group mb-3">
+            <input class="form-control" type="password" placeholder="Password" name="pwd" ngModel #pwd="ngModel" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fa fa-key fa-fw"></i></span>
+            </div>
+          </div>
+          <span class="helpblock" *ngIf="pwd.touched && !pwd.valid">
+          Password should be of min 8 characters,contain atleast one uppercase [A-Z], one lowercase[a-z],one number[0-9] & one special character[!@#\$%\^&\*]
+        </span>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid" data-target="#myModal">Login</button>
+    <app-dialog *ngIf="loginFailed"   [message]="'Incorrect Email/Password. Please try again'"  [title]="'Login Failed!'"></app-dialog>
+
+    <!-- The Modal
+    <app-dialog [myForm]="loginForm" [message]="'Please click OK to continue'"  [title]="'You have successfully signed up with ReportViso'" *ngIf="signupForm.submitted" ></app-dialog> -->
+  </form>
+
+<app-loader *ngIf="loader"></app-loader>
+

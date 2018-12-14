@@ -1,0 +1,44 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" style="visibility: hidden;" data-toggle="modal" data-target="#basicExampleModal" id="modalLauncher" data-backdrop="static">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
+          <button  type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <div *ngIf="!textbox"> {{message}} </div>
+         <form *ngIf="textbox" #RprtSveFrm="ngForm" (submit)="onSaveReport(RprtSveFrm)">
+           <div class="form-group">
+<div class="container">
+          <div class="row">
+  <div class="col-lg-4 col-sm-4 col-4 col-md-4">
+      <label for="reportName">Report Name</label>
+    </div>
+    <div class="col-lg col-sm col col-md">
+        <input type="text" class="form-control" id="reportName" name="reportName" reportName
+        [(ngModel)]="message">
+      </div>
+  </div>
+  </div>
+  </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Save</button>
+
+        </form>
+        </div>
+        <div class="modal-footer" *ngIf="!textbox">
+          <button  type="button" class="btn btn-secondary btn-block" data-dismiss="modal" (click)="onOkClicked()">OK</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+

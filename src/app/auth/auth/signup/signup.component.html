@@ -1,0 +1,52 @@
+
+<form #signupForm="ngForm" (submit)="onSignup(signupForm)">
+    <div class="form-group">
+  <span style="font-size:20px;padding:10px; font-weight: bold;color:#343a40">Signup with ReportViso</span>
+  </div>
+    <div class="form-group">
+        <div class="input-group mb-3">
+            <input class="form-control" type="text" placeholder="Email address" name="email" email ngModel #email="ngModel" required>
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
+            </div>
+          </div>
+          <span class="helpblock" *ngIf="email.touched && !email.valid">Please Enter a Valid Email</span>
+    </div>
+    <div class="form-group">
+
+        <div class="input-group mb-3">
+            <input class="form-control" type="password" placeholder="Password" name="pwd" ngModel #pwd="ngModel" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fa fa-key fa-fw"></i></span>
+            </div>
+          </div>
+          <span class="helpblock" *ngIf="pwd.touched && !pwd.valid">
+          Password should be of min 8 characters,contain atleast one uppercase [A-Z], one lowercase[a-z],one number[0-9] & one special character[!@#\$%\^&\*]
+        </span>
+    </div>
+    <div class="form-group">
+
+        <div class="input-group mb-3">
+            <input class="form-control" type="password" placeholder="Retype Password" name="confirmPwd" ngModel #confirmPwd="ngModel" required>
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fa fa-key fa-fw"></i></span>
+            </div>
+          </div>
+          <span class="helpblock" *ngIf="confirmPwd.touched && (confirmPwd.value != pwd.value)">
+             Passwords do not match
+            </span>
+    </div>
+    <div class="form-group">
+    <div>
+        <input type="checkbox"  id="defaultUnchecked" required name="acceptance" ngModel #acceptance="ngModel">
+        <label for="defaultUnchecked">&nbsp;I accept the terms of use & Privacy Policy</label>
+    </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="!signupForm.valid" data-target="#myModal">Signup</button>
+
+
+    <app-dialog *ngIf="dialog" [message]="message"  [title]="title" (okClicked)="onOk()" ></app-dialog>
+  </form>
+  <app-loader *ngIf="loader"></app-loader>
+
+

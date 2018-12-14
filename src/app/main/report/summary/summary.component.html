@@ -1,0 +1,128 @@
+<h5>Summary Report</h5>
+<table id="summary" class="table table-striped table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>Property </th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Basic Info</td>
+        <td>
+            <table class="table table-striped table-sm" cellspacing="0" width="100%" style="font-size:15px">
+                  <tbody>
+                    <tr>
+                        <td width="18%" style="font-weight:bold;color:rgb(131, 131, 131)">
+                           Name
+                            </td>
+                      <td>
+                        {{summary.fileName}}
+                        </td>
+                      </tr>
+                      <tr>
+                          <td style="font-weight:bold;color:rgb(131, 131, 131)">
+                           Last Modified
+                              </td>
+                          <td>
+                            {{summary.lastModi}}
+                            </td>
+                          </tr>
+                          <tr>
+                              <td style="font-weight:bold;color:rgb(131, 131, 131)">
+                                Type
+                                  </td>
+                              <td>
+                                {{summary.fileType}}
+                                </td>
+                              </tr>
+                              <tr>
+                                  <td style="font-weight:bold;color:rgb(131, 131, 131)">
+                                   Quality
+                                      </td>
+                                  <td>
+                                      <div style="display:block;float:left">
+                                        Report Quality : {{summary.reportQuality.quality}} ({{summary.reportQuality.value}}%)
+                                        </div>
+                                <div style="float:left;margin-left:0">
+                                 <canvas id="quality" #quality width="130" height="130"></canvas>
+                                </div>
+
+                                    </td>
+                                  </tr>
+                    </tbody>
+              </table>
+        </td>
+      </tr>
+      <tr>
+          <td>Total no. of Features</td>
+        <td>
+            <table class="table table-striped table-sm">
+                  <tbody>
+                   <tr *ngFor="let index of summary.geoTyp">
+                     <td width="18%" style="font-weight:bold;color:rgb(131, 131, 131)"  [ngClass]="{'changeBg' : index.key == 'Total'}">{{index.key}}</td>
+                     <td [ngClass]="{'changeBg' : index.key == 'Total'}">{{index.values.length}}</td>
+                     </tr>
+                    </tbody>
+              </table>
+        </td>
+        </tr>
+            <tr>
+          <td>Project Types with count</td>
+          <td>
+          <table class="table table-striped table-sm">
+                <tbody>
+                 <tr *ngFor="let index of summary.project">
+                   <td width="18%" style="font-weight:bold;color:rgb(131, 131, 131)">{{index.key}}</td>
+                   <td>{{index.values.length}}</td>
+                   </tr>
+                  </tbody>
+            </table>
+      </td>
+
+        </tr>
+        <tr>
+            <td>Procedure codes with count</td>
+            <td>
+                <table class="table table-striped table-sm">
+                      <tbody>
+                       <tr *ngFor="let index of summary.proc">
+                         <td width="18%" style="font-weight:bold;color:rgb(131, 131, 131)">Proc {{index.key}}</td>
+                         <td >{{index.values.length}}</td>
+                         </tr>
+                        </tbody>
+                  </table>
+            </td>
+          </tr>
+
+                <tr>
+                    <td>STPOS Errors with Percentage</td>
+                    <td>
+                        <table class="table table-striped table-sm">
+
+                              <tbody>
+                               <tr>
+                                 <td  width="18%" style="font-weight:bold;color:rgb(131, 131, 131)">STPOS1</td>
+                                 <td>{{stpos.stpos1}}%</td>
+                                 </tr>
+                                 <tr>
+                                    <td style="font-weight:bold;color:rgb(131, 131, 131)">STPOS2</td>
+                                    <td>{{stpos.stpos2}}%</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight:bold;color:rgb(131, 131, 131)">STPOS3</td>
+                                        <td>{{stpos.stpos3}}%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight:bold;color:rgb(131, 131, 131)">STPOS4</td>
+                                            <td>{{stpos.stpos4}}%</td>
+                                            </tr>
+                                </tbody>
+                          </table>
+                    </td>
+                  </tr>
+    </tbody>
+
+  </table>
+
+

@@ -1,0 +1,35 @@
+.card {
+  background-color:#343a401f;
+
+
+
+border-color: #014894;
+
+  }
+
+.noReport {
+  text-align: center;
+}
+
+
+  .card-header {
+text-align: center;
+    color:white;
+padding:2px;
+background-color:#014894;
+
+  }
+
+  .card-body {
+    background-color:rgb(243, 241, 241);
+    padding:5px;
+
+  }
+
+  h5 {
+    width:100%;
+   padding:5px;
+   background-color:#014894;
+   color:white;
+
+  }
