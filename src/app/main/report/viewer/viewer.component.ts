@@ -79,13 +79,13 @@ const svg = d3.select(viewer).append('svg')
   .append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-    svg.append('rect')
+  /*  svg.append('rect')
   .attr('x', -(margin.left ))
   .attr('y', -28)
   .attr('width',  width + margin.left + margin.right)
   .attr('height', height + margin.top + margin.bottom)
   .style('fill', '#EFF9FF')
-  .style('stroke-width', '1');
+  .style('stroke-width', '1');*/
 
   svg.append('g')
       .attr('class', 'x axis')
@@ -101,34 +101,11 @@ const div = d3.select(viewer).append('div')
 .attr('class', 'tooltip')
 .style('opacity', 0);
 
-      svg.append('text')
-      .attr('transform',
-            'translate(' + (width / 2) + ' ,' +
-                           (height + margin.top) + ')')
-      .style('text-anchor', 'middle')
-      .style('font-weight', 'bold')
-      .style('font-size', '13px')
-      .text('X');
+
 
 
         // text label for the y axis
-  svg.append('text')
-  .attr('transform', 'rotate(-90)')
-  .attr('y', 0 - margin.left)
-  .attr('x', 0 - (height / 2))
-  .attr('dy', '1em')
-  .style('text-anchor', 'middle')
-  .style('font-size', '13px')
-  .style('font-weight', 'bold')
-  .text('Y');
 
-  svg.append('text')
-        .attr('x', (width / 2))
-        .attr('y', 0 - (margin.top / 2 - 5))
-        .attr('text-anchor', 'middle')
-        .style('font-size', '16px')
-        .style('font-weight', 'bold')
-        .text('Weld Points in 2D');
 
             data.forEach(function(d) {
               d.x = +d.x;
@@ -176,8 +153,8 @@ const div = d3.select(viewer).append('div')
 
               CreateGuiPanel() {
                 const text = {
-                  size : 6.0,
-                 color : '#ffae23',
+                  size : 2.5,
+                 pointColor : '#FFFFFF',
                  project: 'car',
                  pc : '21',
                  norm: '+x',
@@ -187,7 +164,7 @@ const div = d3.select(viewer).append('div')
                 const gui = new dat.GUI({autoPlace: false });
              $('#gui').append($(gui.domElement));
                const f1 = gui.addFolder('Weld Point');
-              const weldColor = f1.addColor(text, 'color').name('Color').listen();
+              const weldColor = f1.addColor(text, 'pointColor').name('Color').listen();
                const weldSize =  f1.add(text, 'size').min(2).max(6).step(0.25).name('Size');
 
                 f1.open();
