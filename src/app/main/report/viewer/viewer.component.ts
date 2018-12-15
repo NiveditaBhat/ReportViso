@@ -144,6 +144,10 @@ export class ViewerComponent implements OnInit {
           '</td></tr><tr><td align="left"><b>Y</b></td><td align="left">' + d.y +
           '</td></tr><tr><td align="left"><b>Proc_Code</b></td><td align="left">' + d.Proc_code +
           '</td></tr><tr><td align="left"><b>Norm</b></td><td align="left">' + d.Norm +
+          '</td></tr><tr><td align="left"><b>STPOS1</b></td><td align="left">' + d.STPOS1 +
+          '</td></tr><tr><td align="left"><b>STPOS2</b></td><td align="left">' + d.STPOS2 +
+          '</td></tr><tr><td align="left"><b>STPOS3</b></td><td align="left">' + d.STPOS3 +
+          '</td></tr><tr><td align="left"><b>STPOS4</b></td><td align="left">' + d.STPOS4 +
           '</td></tr></table></html>')
           .style('left', Number(d3.select(this).attr('cx')) + 10 + 'px')
           .style('top', Number(d3.select(this).attr('cy')) + 50 + 'px');
@@ -163,12 +167,15 @@ export class ViewerComponent implements OnInit {
   CreateGuiPanel() {
     const text = {
       size: 2.5,
-      pointColor: '#FFFFFF',
+      pointColor: '#808080',
       project: 'Choose',
       pc: 'Choose',
       norm: 'Choose',
       stpos: false,
-      reset: false
+      reset: function() {
+        d3.selectAll('.weldPoints').style('fill', 'grey');
+        d3.selectAll('.weldPoints').attr('r', '2.5');
+      }
     };
     const gui = new dat.GUI({ autoPlace: false });
     $('#gui').append($(gui.domElement));
@@ -180,8 +187,8 @@ export class ViewerComponent implements OnInit {
     const f2 = gui.addFolder('Filter by Weld Features');
     const projectControl = f2.add(text, 'project', ['Choose', 'car', 'van', 'pkw']).name('Project');
     const procCodeControl = f2.add(text, 'pc', ['Choose', '21', '23', '71', '66']).name('Procedure Code');
-    f2.add(text, 'norm', ['Choose', '+x', '-x', '+y', '-y']).name('Norm');
-    f2.add(text, 'stpos').name('STPOS Errors');
+    const normControl = f2.add(text, 'norm', ['Choose', '+x', '-x', '+y', '-y']).name('Norm');
+    const stposControl = f2.add(text, 'stpos').name('Show/Hide STPOS Errors');
     f2.add(text, 'reset').name('Reset');
     f2.open();
 
@@ -198,26 +205,62 @@ export class ViewerComponent implements OnInit {
     projectControl.onChange(
       function (newValue) {
         d3.selectAll('.weldPoints').style('fill', 'grey');
+        d3.selectAll('.weldPoints').attr('r', '2.5');
         d3.selectAll('.weldPoints')
         .filter(function(d, i) {
           if (d['Project'] === newValue) {
             return d;
           }
         })
-        .style('fill', 'red');
+        .style('fill', 'red')
+        .attr('r', '3.5');
       });
 
       procCodeControl.onChange(
         function (newValue) {
           d3.selectAll('.weldPoints').style('fill', 'grey');
+          d3.selectAll('.weldPoints').attr('r', '2.5');
           d3.selectAll('.weldPoints')
           .filter(function(d, i) {
             if (d['Proc_code'] === newValue) {
               return d;
             }
           })
-          .style('fill', 'red');
+          .style('fill', 'red')
+          .attr('r', '3.5');
         });
+
+        normControl.onChange(
+          function (newValue) {
+            d3.selectAll('.weldPoints').style('fill', 'grey');
+            d3.selectAll('.weldPoints').attr('r', '2.5');
+            d3.selectAll('.weldPoints')
+            .filter(function(d, i) {
+              if (d['Norm'] === newValue) {
+                return d;
+              }
+            })
+            .style('fill', 'red')
+            .attr('r', '3.5');
+          });
+
+          stposControl.onChange(
+            function (newValue) {
+              d3.selectAll('.weldPoints').style('fill', 'grey');
+              d3.selectAll('.weldPoints').attr('r', '2.5');
+              d3.selectAll('.weldPoints')
+              .filter(function(d, i) {
+                if (newValue){
+                if ((d['STPOS1'] < 0) || (d['STPOS2'] < 0) || (d['STPOS3'] < 0) || (d['STPOS4'] < 0) ) {
+                  return d;
+                }
+              }
+              })
+              .style('fill', 'red')
+              .attr('r', '3.5');
+            });
+
+
 
   }
 
