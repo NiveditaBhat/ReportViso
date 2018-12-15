@@ -29,8 +29,8 @@ export class ViewerComponent implements OnInit {
 
     const data = this.reportService.getReportCSV();
 
-    const margin = { top: 35, right: 35, bottom: 35, left: 35 },
-      width = 600 * 1.5 - margin.left - margin.right,
+    const margin = { top: 15, right: 35, bottom: 35, left: 35 },
+      width = 580 * 1.5 - margin.left - margin.right,
       height = 270 * 1.6 - margin.top - margin.bottom;
     // Parse the date / time
 
@@ -132,7 +132,7 @@ export class ViewerComponent implements OnInit {
       .attr('stpos2', function (d) { return d.STPOS2; })
       .attr('stpos3', function (d) { return d.STPOS3; })
       .attr('stpos4', function (d) { return d.STPOS4; })
-      .style('fill', function (d) { return 'blue'; })
+      .style('fill', function (d) { return 'grey'; })
       .on('mouseover', function (d) {
         div.transition()
           .duration(200)
@@ -150,7 +150,7 @@ export class ViewerComponent implements OnInit {
           '</td></tr><tr><td align="left"><b>STPOS4</b></td><td align="left">' + d.STPOS4 +
           '</td></tr></table></html>')
           .style('left', Number(d3.select(this).attr('cx')) + 10 + 'px')
-          .style('top', Number(d3.select(this).attr('cy')) + 50 + 'px');
+          .style('top', Number(d3.select(this).attr('cy')) + 25 + 'px');
       })
       .on('mouseout', function (d) {
         div.transition()
@@ -188,7 +188,7 @@ export class ViewerComponent implements OnInit {
     const projectControl = f2.add(text, 'project', ['Choose', 'car', 'van', 'pkw']).name('Project');
     const procCodeControl = f2.add(text, 'pc', ['Choose', '21', '23', '71', '66']).name('Procedure Code');
     const normControl = f2.add(text, 'norm', ['Choose', '+x', '-x', '+y', '-y']).name('Norm');
-    const stposControl = f2.add(text, 'stpos').name('Show/Hide STPOS Errors');
+    const stposControl = f2.add(text, 'stpos').name('STPOS Errors');
     f2.add(text, 'reset').name('Reset');
     f2.open();
 
