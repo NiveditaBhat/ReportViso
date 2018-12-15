@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Report } from '../report.model';
 import { ReportService } from '../report.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -19,6 +19,7 @@ title;
 message;
 delDialog = false;
 loader = false;
+
   constructor(private reportService: ReportService, private router: Router, private activatedRouter: ActivatedRoute) { }
 
   ngOnInit() {
@@ -47,6 +48,10 @@ this.loader = false;
       'bInfo' : false,
       'ordering': false
     });
+
+    setTimeout(() => {
+      $('#handPointer').hide();
+    }, 1000 * 5);
   }
 
   onFileUpload(event: Event) {

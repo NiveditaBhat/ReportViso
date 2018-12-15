@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
-declare var jquery: any;
-declare var $: any;
+declare const jquery: any;
+declare const $: any;
 import * as d3 from 'd3-3';
 import { ReportService } from '../../report.service';
 import * as dat from 'dat.gui';
@@ -34,6 +34,15 @@ export class ViewerComponent implements OnInit {
       height = 270 * 1.6 - margin.top - margin.bottom;
     // Parse the date / time
 
+const zoom = d3.behavior.zoom()
+    .scaleExtent([1, 10])
+    .on('zoom', zoomed);
+
+const drag = d3.behavior.drag()
+    .origin(function(d) { return d; })
+    .on('dragstart', dragstarted)
+    .on('drag', dragged)
+    .on('dragend', dragended);
 
     // Set the ranges
     const x = d3.scale.linear()
@@ -77,22 +86,23 @@ export class ViewerComponent implements OnInit {
       .attr('width', width + margin.left + margin.right)
       .attr('height', height + margin.top + margin.bottom)
       .append('g')
-      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+      .call(zoom);
+      const rect = svg.append('rect')
+      .attr('width', width)
+      .attr('height', height)
+      .style('fill', 'none')
+      .style('pointer-events', 'all');
 
-    /*  svg.append('rect')
-    .attr('x', -(margin.left ))
-    .attr('y', -28)
-    .attr('width',  width + margin.left + margin.right)
-    .attr('height', height + margin.top + margin.bottom)
-    .style('fill', '#EFF9FF')
-    .style('stroke-width', '1');*/
+  const container = svg.append('g');
 
-    svg.append('g')
+
+    container.append('g')
       .attr('class', 'x axis')
       .attr('transform', 'translate(0,' + height + ')')
       .call(xAxis);
 
-    svg.append('g')
+    container.append('g')
       .attr('class', 'y axis')
       .call(yAxis);
 
@@ -115,7 +125,7 @@ export class ViewerComponent implements OnInit {
 
 
     // Add the valueline path.
-    const circles = svg.selectAll('circle')
+    const circles = container.selectAll('circle')
       .data(data)
       .enter()
       .append('circle');
@@ -149,8 +159,8 @@ export class ViewerComponent implements OnInit {
           '</td></tr><tr><td align="left"><b>STPOS3</b></td><td align="left">' + d.STPOS3 +
           '</td></tr><tr><td align="left"><b>STPOS4</b></td><td align="left">' + d.STPOS4 +
           '</td></tr></table></html>')
-          .style('left', Number(d3.select(this).attr('cx')) + 10 + 'px')
-          .style('top', Number(d3.select(this).attr('cy')) + 25 + 'px');
+          .style('left', (d3.event.pageX - 250) + 'px')
+          .style('top',  (d3.event.pageY - 130) + 'px');
       })
       .on('mouseout', function (d) {
         div.transition()
@@ -158,16 +168,30 @@ export class ViewerComponent implements OnInit {
           .style('opacity', 0);
       });
 
+      function zoomed() {
+        container.attr('transform', 'translate(' + d3.event.translate + ')scale(' + d3.event.scale + ')');
+      }
 
+      function dragstarted(d) {
+        d3.event.sourceEvent.stopPropagation();
+        d3.select(this).classed('dragging', true);
+      }
 
+      function dragged(d) {
+        d3.select(this).attr('cx', d.x = d3.event.x).attr('cy', d.y = d3.event.y);
+      }
+
+      function dragended(d) {
+        d3.select(this).classed('dragging', false);
+      }
 
   }
 
 
   CreateGuiPanel() {
     const text = {
-      size: 2.5,
       pointColor: '#808080',
+      size: 2.5,
       project: 'Choose',
       pc: 'Choose',
       norm: 'Choose',
@@ -177,13 +201,13 @@ export class ViewerComponent implements OnInit {
         d3.selectAll('.weldPoints').attr('r', '2.5');
       }
     };
-    const gui = new dat.GUI({ autoPlace: false });
+    const gui = new dat.GUI({ autoPlace: false, height: 500 });
     $('#gui').append($(gui.domElement));
     const f1 = gui.addFolder('Weld Point');
-    const weldColor = f1.addColor(text, 'pointColor').name('Color').listen();
     const weldSize = f1.add(text, 'size').min(2).max(6).step(0.25).name('Size');
+    const weldColor = f1.addColor(text, 'pointColor').name('Color');
 
-    f1.open();
+   // f1.open();
     const f2 = gui.addFolder('Filter by Weld Features');
     const projectControl = f2.add(text, 'project', ['Choose', 'car', 'van', 'pkw']).name('Project');
     const procCodeControl = f2.add(text, 'pc', ['Choose', '21', '23', '71', '66']).name('Procedure Code');

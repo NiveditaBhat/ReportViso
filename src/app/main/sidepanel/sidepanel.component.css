@@ -6,6 +6,7 @@
 
 }
 
+
 #sidebar .list-group-item {
   border-radius: 0;
   background-color: #333;
@@ -16,7 +17,7 @@
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
-
+font-size:15px;
 }
 
 #sidebar .list-group-item:hover {
@@ -54,7 +55,7 @@ background-color: #222;
 content: " \f0da";
 font-family: FontAwesome;
 display: inline;
-text-align: right;
+text-align: left;
 padding-left: 5px;
 }
 
