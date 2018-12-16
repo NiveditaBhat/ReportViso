@@ -131,7 +131,12 @@ const drag = d3.behavior.drag()
     const circles = container.selectAll('circle')
       .data(data)
       .enter()
-      .append('circle');
+      .append('circle')
+      .filter(function(d, i) {
+        if (d['Geo_typ'] === 'point') {
+          return d;
+        }
+      });
 
     const circleAttributes = circles
       .attr('class', 'weldPoints')
