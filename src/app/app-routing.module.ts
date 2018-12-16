@@ -16,7 +16,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ViewerComponent } from './main/report/viewer/viewer.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
-const route: Routes = [{path: '', component: WelcomeComponent},
+const route: Routes = [ {path: '', component: WelcomeComponent},
 {path: 'auth', component: AuthComponent, children: [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent}

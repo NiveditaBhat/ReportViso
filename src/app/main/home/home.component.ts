@@ -84,17 +84,17 @@ const context = (<HTMLCanvasElement>canvas).getContext('2d');
         labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL'],
         datasets: [{
             label: 'Data',
-            borderColor: 'rgb(78, 78, 78)',
+            borderColor: 'grey',
             pointBorderColor: 'blue',
             pointBackgroundColor: 'blue',
             pointHoverBackgroundColor: 'blue',
             pointHoverBorderColor: 'blue',
-            pointBorderWidth: 5,
+            pointBorderWidth: 2,
             pointHoverRadius: 8,
             pointHoverBorderWidth: 1,
-            pointRadius: 1,
+            pointRadius: 2,
             fill: false,
-            borderWidth: 2,
+            borderWidth: 1,
             data: [100, 120, 150, 170, 180, 170, 160]
         }]
     },

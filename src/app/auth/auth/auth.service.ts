@@ -11,7 +11,7 @@ export class AuthService {
   isAuthenticated = false;
 private token;
 private tokenTimer ;
-private userId;  
+private userId;
 
   constructor(private http: HttpClient, private router: Router) {
 
@@ -23,7 +23,7 @@ this.userId =  userId;
 
 getUserId(){
   return this.userId;
-}  
+}
 
 setToken(token : string){
 this.token = token;
@@ -77,7 +77,7 @@ this.tokenTimer = setTimeout(() => {
         clearTimeout(this.tokenTimer);
         this.authStatus.next(false);
         this.clearAuthData();
-        this.router.navigate(['/main/logout']);
+        this.router.navigate(['/']);
 
       }
 
