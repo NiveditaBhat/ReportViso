@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -12,16 +12,25 @@ export class LoginComponent implements OnInit {
 loader = false;
 userId;
 loginFailed = false;
-
-  constructor(private authService: AuthService, private router: Router) { }
+guestUser = false;
+  constructor(private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.guestUser = false;
+    this.activatedRoute.queryParams.subscribe(
+      (param) => {
+        if (param['guest']) {
+this.guestUser = true;
+this.onLogin('neetu@home.com', 'Stay.true1');
+        }
+      }
+    );
   }
 
-  onLogin(form) {
+  onLogin(email, password) {
     this.loader = true;
     this.loginFailed = false;
-    const user = {'email' : form.form.value.email, 'password': form.form.value.pwd};
+const user = {'email' : email, 'password': password};
    this.authService.authenticateUser(user).subscribe(
      (response) => {
 

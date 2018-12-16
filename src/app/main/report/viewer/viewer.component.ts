@@ -21,6 +21,9 @@ export class ViewerComponent implements OnInit {
     }
     this.CreateViewer();
     this.CreateGuiPanel();
+    setTimeout(() => {
+      $('#gesture').hide();
+    }, 1000 * 7);
   }
 
   CreateViewer() {
