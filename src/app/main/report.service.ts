@@ -23,13 +23,18 @@ constructor(private http: HttpClient, private authService: AuthService) {
 
 onFileSelect(event: Event) {
   const file =  (event.target as HTMLInputElement).files[0];
- //this.reportProp = file;
+
   const reader = new FileReader();
   reader.readAsText(file);
   reader.onload = (data1) => {
-//const report.content = reader.result;
 const csvJson = d3.csv.parse(reader.result);
+csvJson.forEach((d) => {
+  if(d['Geo_typ'] === 'curve') {
+  d['curveArray'] = d['curveArray'].replace(/\s/g, ',');
+  d['curveArray'] = JSON.parse( d['curveArray']);
 
+  }
+});
 this.report.content = csvJson;
 this.assignReportProp(file);
   };

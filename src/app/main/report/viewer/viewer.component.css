@@ -14,11 +14,7 @@ h5 {
 
 #gui {  }
 
-.line{
-  fill: none;
-  stroke: blue;
-  stroke-width: 2px;
-}
+
 
 .tick text{
   font-size: 12px;

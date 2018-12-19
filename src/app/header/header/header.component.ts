@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '../../auth/auth/auth.service';
 import { Router } from '@angular/router';
 import { ReportService } from '../../main/report.service';
@@ -16,6 +16,7 @@ isAuthenticated = false;
 isPanelLoaded = false;
 subscription1: Subscription;
 subscription2: Subscription;
+
   constructor(private authService: AuthService, private router: Router, private reportService: ReportService) { }
 
   ngOnInit() {
@@ -25,12 +26,14 @@ subscription2: Subscription;
         this.isAuthenticated = isAuthenticated;
       }
     );
+
    // $('.btn-expand-collapse').click(function(e) {
      // $('.navbar-primary').toggleClass('collapsed');
 //});
 
 this.subscription1 = this.reportService.panelLoaded.asObservable().subscribe(() =>{
 this.isPanelLoaded = true;
+
 });
 
 this.subscription2 = this.reportService.panelUnLoaded.asObservable().subscribe(() => {

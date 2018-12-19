@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, AfterViewInit } from '@angular/core';
 declare const jquery: any;
 declare const $: any;
 import * as d3 from 'd3-3';
@@ -10,27 +10,36 @@ import * as dat from 'dat.gui';
   styleUrls: ['./viewer.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class ViewerComponent implements OnInit {
+export class ViewerComponent implements OnInit, AfterViewInit{
   @Input() id;
-
+expanded = false;
   constructor(private reportService: ReportService) { }
 
   ngOnInit() {
+
+  }
+  getExpanded() {
+    return this.expanded;
+  }
+
+  ngAfterViewInit() {
     if (this.id) {
       this.reportService.findReport(this.id);
     }
-    this.CreateViewer();
+
+    this.CreateViewer(this);
     this.CreateGuiPanel();
     setTimeout(() => {
       $('#gesture').hide();
     }, 1000 * 7);
   }
 
-  CreateViewer() {
+  CreateViewer(that) {
 
 
 
     const data = this.reportService.getReportCSV();
+
 
     const margin = { top: 15, right: 35, bottom: 35, left: 35 },
       width = 580 * 1.5 - margin.left - margin.right,
@@ -50,16 +59,12 @@ const drag = d3.behavior.drag()
     // Set the ranges
     const x = d3.scale.linear()
       .domain(
-        [
-          d3.min([0, d3.min(data, function (d) { return d.x; })]),
-          d3.max([0, d3.max(data, function (d) { return d.x; })])
-        ])
+
+          d3.extent(data, function(d) { return d.x; })
+        )
       .range([0, width]);
     const y = d3.scale.linear()
-      .domain([
-        d3.min([0, d3.min(data, function (d) { return d.y; })]),
-        d3.max([0, d3.max(data, function (d) { return d.y; })])
-      ])
+      .domain( d3.extent(data, function(d) { return d.y; }))
       .range([height, 0]);
 
     // Define the axes
@@ -167,14 +172,81 @@ const drag = d3.behavior.drag()
           '</td></tr><tr><td align="left"><b>STPOS3</b></td><td align="left">' + d.STPOS3 +
           '</td></tr><tr><td align="left"><b>STPOS4</b></td><td align="left">' + d.STPOS4 +
           '</td></tr></table></html>')
-          .style('left', (d3.event.pageX - 250) + 'px')
-          .style('top',  (d3.event.pageY - 130) + 'px');
+          .style('left', () => {
+            let offsetX;
+
+            if ( $('#collapseBar').hasClass('collapsed')) {
+              offsetX =  -5;
+            } else {
+              offsetX =  250;
+            }
+            return (d3.event.pageX - offsetX) + 'px';
+          })
+          .style('top',  (d3.event.pageY - 110) + 'px');
       })
       .on('mouseout', function (d) {
         div.transition()
           .duration(500)
           .style('opacity', 0);
       });
+
+     // const points = [{x:334.79,y:171.5},{x:335.43,y:140.19},{x:309.83,y:168.15},
+       // {x:292.83,y:150.14},{x:305.39,y:158.1},{x:321.23,y:172.58}];
+
+      const lineFunction = d3.svg.line()
+                           .x(function(d) {
+                             return x(d.x); })
+                               .y(function(d) { return x(d.y) ; })
+                              .interpolate('cardinal');
+
+  container.selectAll('.line')
+  .data(data)
+  .enter().append('g')
+  .append('path')
+  .filter(function(d, i) {
+    if (d['Geo_typ'] === 'curve') {
+      return d;
+    }
+  })
+  .attr('class', 'line')
+  .attr('d', function(d) {
+  return  lineFunction(d.curveArray);
+  })
+  .style('stroke-dasharray', ('3, 3'))
+  .style('stroke', 'grey')
+  .attr('fill', 'none')
+  .on('mouseover', function (d) {
+    div.transition()
+      .duration(200)
+      .style('opacity', .9);
+    div.html('<html><table cellspacing="7" cellpadding="4" style="font-size:12px">' +
+      '<tr><td align="left"><b>JEID</b></td><td align="left">' + d.JEID +
+      '</td></tr><tr><td align="left"><b>Project</b></td><td align="left">' + d.Project +
+      '</td></tr><tr><td align="left"><b>X</b></td><td align="left">' + d.x +
+      '</td></tr><tr><td align="left"><b>Y</b></td><td align="left">' + d.y +
+      '</td></tr><tr><td align="left"><b>Proc_Code</b></td><td align="left">' + d.Proc_code +
+      '</td></tr><tr><td align="left"><b>Norm</b></td><td align="left">' + d.Norm +
+      '</td></tr><tr><td align="left"><b>STPOS1</b></td><td align="left">' + d.STPOS1 +
+      '</td></tr><tr><td align="left"><b>STPOS2</b></td><td align="left">' + d.STPOS2 +
+      '</td></tr><tr><td align="left"><b>STPOS3</b></td><td align="left">' + d.STPOS3 +
+      '</td></tr><tr><td align="left"><b>STPOS4</b></td><td align="left">' + d.STPOS4 +
+      '</td></tr></table></html>')
+      .style('left', (d3.event.pageX - 250) + 'px')
+      .style('top',  (d3.event.pageY - 130) + 'px');
+  })
+  .on('mouseout', function (d) {
+    div.transition()
+      .duration(500)
+      .style('opacity', 0);
+  });
+
+
+
+
+
+
+
+
 
       function zoomed() {
         container.attr('transform', 'translate(' + d3.event.translate + ')scale(' + d3.event.scale + ')');
@@ -200,6 +272,8 @@ const drag = d3.behavior.drag()
     const text = {
       pointColor: '#808080',
       size: 2.5,
+      curveColor: '#808080',
+      curveSize: 1,
       project: 'Choose',
       pc: 'Choose',
       norm: 'Choose',
@@ -207,6 +281,8 @@ const drag = d3.behavior.drag()
       reset: function() {
         d3.selectAll('.weldPoints').style('fill', 'grey');
         d3.selectAll('.weldPoints').attr('r', '2.5');
+        d3.selectAll('.line').style('stroke', 'grey')
+       .style('stroke-width', '1');
       }
     };
     const gui = new dat.GUI({ autoPlace: false, height: 500 });
@@ -214,15 +290,19 @@ const drag = d3.behavior.drag()
     const f1 = gui.addFolder('Weld Point');
     const weldSize = f1.add(text, 'size').min(2).max(6).step(0.25).name('Size');
     const weldColor = f1.addColor(text, 'pointColor').name('Color');
+    const f = gui.addFolder('Weld Curve');
+    const curveSize = f.add(text, 'curveSize').min(1).max(5).step(0.25).name('Size');
+    const curveColor = f.addColor(text, 'curveColor').name('Color');
+f.open();
 
-   // f1.open();
+    f1.open();
     const f2 = gui.addFolder('Filter by Weld Features');
     const projectControl = f2.add(text, 'project', ['Choose', 'car', 'van', 'pkw']).name('Project');
     const procCodeControl = f2.add(text, 'pc', ['Choose', '21', '23', '71', '66']).name('Procedure Code');
     const normControl = f2.add(text, 'norm', ['Choose', '+x', '-x', '+y', '-y']).name('Norm');
     const stposControl = f2.add(text, 'stpos').name('STPOS Errors');
     f2.add(text, 'reset').name('Reset');
-    f2.open();
+//    f2.open();
 
 
     weldColor.onChange(
@@ -234,9 +314,21 @@ const drag = d3.behavior.drag()
         d3.selectAll('.weldPoints').attr('r', newValue);
       });
 
+      curveColor.onChange(
+        function (newValue) {
+          d3.selectAll('.line').style('stroke', newValue);
+        });
+      curveSize.onChange(
+        function (newValue) {
+          d3.selectAll('.line').style('stroke-width', newValue);
+        });
+
+
     projectControl.onChange(
       function (newValue) {
         d3.selectAll('.weldPoints').style('fill', 'grey');
+        d3.selectAll('.line').style('stroke', 'grey')
+        .style('stroke-width', '1');
         d3.selectAll('.weldPoints').attr('r', '2.5');
         d3.selectAll('.weldPoints')
         .filter(function(d, i) {
@@ -246,12 +338,23 @@ const drag = d3.behavior.drag()
         })
         .style('fill', 'red')
         .attr('r', '3.5');
+
+        d3.selectAll('.line')
+        .filter(function(d, i) {
+          if (d['Project'] === newValue) {
+            return d;
+          }
+        })
+        .style('stroke', 'red')
+        .style('stroke-width', '3');
       });
 
       procCodeControl.onChange(
         function (newValue) {
           d3.selectAll('.weldPoints').style('fill', 'grey');
           d3.selectAll('.weldPoints').attr('r', '2.5');
+          d3.selectAll('.line').style('stroke', 'grey')
+          .style('stroke-width', '1');
           d3.selectAll('.weldPoints')
           .filter(function(d, i) {
             if (d['Proc_code'] === newValue) {
@@ -260,12 +363,22 @@ const drag = d3.behavior.drag()
           })
           .style('fill', 'red')
           .attr('r', '3.5');
+          d3.selectAll('.line')
+          .filter(function(d, i) {
+            if (d['Proc_code'] === newValue) {
+              return d;
+            }
+          })
+          .style('stroke', 'red')
+          .style('stroke-width', '3');
         });
 
         normControl.onChange(
           function (newValue) {
             d3.selectAll('.weldPoints').style('fill', 'grey');
             d3.selectAll('.weldPoints').attr('r', '2.5');
+            d3.selectAll('.line').style('stroke', 'grey')
+            .style('stroke-width', '1');
             d3.selectAll('.weldPoints')
             .filter(function(d, i) {
               if (d['Norm'] === newValue) {
@@ -274,12 +387,22 @@ const drag = d3.behavior.drag()
             })
             .style('fill', 'red')
             .attr('r', '3.5');
+            d3.selectAll('.line')
+            .filter(function(d, i) {
+              if (d['Norm'] === newValue) {
+                return d;
+              }
+            })
+            .style('stroke', 'red')
+            .style('stroke-width', '3');
           });
 
           stposControl.onChange(
             function (newValue) {
               d3.selectAll('.weldPoints').style('fill', 'grey');
               d3.selectAll('.weldPoints').attr('r', '2.5');
+              d3.selectAll('.line').style('stroke', 'grey')
+              .style('stroke-width', '1');
               d3.selectAll('.weldPoints')
               .filter(function(d, i) {
                 if (newValue){
@@ -290,6 +413,16 @@ const drag = d3.behavior.drag()
               })
               .style('fill', 'red')
               .attr('r', '3.5');
+              d3.selectAll('.line')
+              .filter(function(d, i) {
+                if (newValue){
+                if ((d['STPOS1'] < 0) || (d['STPOS2'] < 0) || (d['STPOS3'] < 0) || (d['STPOS4'] < 0) ) {
+                  return d;
+                }
+              }
+              })
+              .style('stroke', 'red')
+              .style('stroke-width', '3');
             });
 
 
