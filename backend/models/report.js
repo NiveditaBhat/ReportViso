@@ -4,6 +4,7 @@ const reportSchema = mongoose.Schema({
   name: {type: String, required: true, unique:true},
   lastModi:{type: Date, required: true},
   fileTyp:{type: String, required: true},
+  quality:{type: String, required: true},
   content :[{
     JEID :{type: String, required: true},
     Project :{type: String, required: true},
@@ -11,6 +12,7 @@ const reportSchema = mongoose.Schema({
     x :{type: Number, required: true},
     y :{type: Number, required: true},
     z :{type: Number, required: true},
+    curveArray:[],
     Proc_code :{type: String, required: true},
     Norm :{type: String, required: true},
     STPOS1 :{type: Number, required: true},

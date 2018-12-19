@@ -6,11 +6,12 @@ exports.saveReport = (req,res,next)=>{
     name : req.body.name,
     lastModi:req.body.lastModi,
     fileTyp:req.body.fileTyp,
-    content: req.body.content,
+    quality:req.body.quality,
+    content:  req.body.content,
     creator:req.userData.userId
   });
 
-
+console.log(report.content);
 
   report.save().then(result => {
 
@@ -90,6 +91,7 @@ else
         name : req.body.name,
         lastModi:req.body.lastModi,
         fileTyp:req.body.fileTyp,
+        quality:req.body.quality,
         content: req.body.content,
         creator:req.userData.userId
       };

@@ -8,7 +8,7 @@ let project = ['car','pkw','van'];
 let geo_typ = ['point'];
 let proc_code=['21','23','71','66'];
 let norm_dir = ['+x','+y','-x','-y','+z','-z'];
-let STPOS = ['-1','-11','-7','-14','-21','1'];
+let STPOS = ['-1','-11','-7','-14','-21','1','2','3'];
 
 
 
@@ -24,7 +24,7 @@ function getMax(arr, prop) {
 writeStream.write(header);
 let min = Math.ceil(1);
   let max = Math.floor(500);
-for(i=0;i<50;i++) {
+for(i=0;i<200;i++) {
 let row = '';
 
 let JEID = 'JE' + Math.floor(1000 + Math.random() * 9000);

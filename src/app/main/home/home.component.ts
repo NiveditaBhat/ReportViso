@@ -23,6 +23,7 @@ public context: CanvasRenderingContext2D;
   constructor(private authService: AuthService, private router: Router, private activeRoute: ActivatedRoute,
     private reportService: ReportService) { }
 loader = false;
+reportQual = [{'poor': '', 'medium': '', 'good': ''}];
   ngOnInit() {
 this.loader = true;
     this.selected = '';
@@ -36,6 +37,9 @@ this.loader = true;
 
        if (reportList) {
         this.loader = false;
+     /*   reportList.forEach((report) => {
+if(report.)
+        });*/
                 }
 
 

@@ -135,6 +135,7 @@ summary_geoTyp.push({key:'Total', values:{length: total}});
 
  const reportQuality = this.addReportQuality(summary);
 summary['reportQuality'] = reportQuality;
+this.report.quality = reportQuality.quality;
 
  return summary;
 }
@@ -196,9 +197,10 @@ const report = {
   'name' : reportName,
   'lastModi': this.report.lastModi,
   'fileTyp': this.report.fileTyp,
+  'quality': this.report.quality,
   'content' : this.report.content
 };
-console.log(report);
+
  return this.http.post<{message: string, id: string}>(this.backendUrl + 'api/report/save', report);
 
 }
