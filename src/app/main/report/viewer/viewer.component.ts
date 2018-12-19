@@ -176,7 +176,7 @@ const drag = d3.behavior.drag()
             let offsetX;
 
             if ( $('#collapseBar').hasClass('collapsed')) {
-              offsetX =  -5;
+              offsetX =  0;
             } else {
               offsetX =  250;
             }
@@ -231,8 +231,17 @@ const drag = d3.behavior.drag()
       '</td></tr><tr><td align="left"><b>STPOS3</b></td><td align="left">' + d.STPOS3 +
       '</td></tr><tr><td align="left"><b>STPOS4</b></td><td align="left">' + d.STPOS4 +
       '</td></tr></table></html>')
-      .style('left', (d3.event.pageX - 250) + 'px')
-      .style('top',  (d3.event.pageY - 130) + 'px');
+      .style('left', () => {
+        let offsetX;
+
+        if ( $('#collapseBar').hasClass('collapsed')) {
+          offsetX =  0;
+        } else {
+          offsetX =  250;
+        }
+        return (d3.event.pageX - offsetX) + 'px';
+      })
+      .style('top',  (d3.event.pageY - 110) + 'px');
   })
   .on('mouseout', function (d) {
     div.transition()
