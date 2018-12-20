@@ -23,8 +23,11 @@ public context: CanvasRenderingContext2D;
   constructor(private authService: AuthService, private router: Router, private activeRoute: ActivatedRoute,
     private reportService: ReportService) { }
 loader = false;
-reportQual = [{'poor': '', 'medium': '', 'good': ''}];
+reportQual = {'poor': 0, 'medium': 0, 'good': 0};
+currTime;
   ngOnInit() {
+const currentTime = new Date();
+ this.currTime = currentTime.toLocaleTimeString();
 this.loader = true;
     this.selected = '';
     this.reportList = [];
@@ -37,9 +40,15 @@ this.loader = true;
 
        if (reportList) {
         this.loader = false;
-     /*   reportList.forEach((report) => {
-if(report.)
-        });*/
+     reportList.forEach((report) => {
+
+  this.reportQual[report.quality] = + this.reportQual[report.quality] + 1;
+
+        });
+        console.log(this.reportQual);
+        const pieData = [this.reportQual['poor'], this.reportQual['medium'], this.reportQual['good']];
+        this.drawPieChart(this.myCanvas.nativeElement, pieData);
+
                 }
 
 
@@ -49,7 +58,7 @@ if(report.)
       recentActivity();
       function recentActivity() {
 
-        $('#reports').DataTable({
+     $('#reports').DataTable({
           'columnDefs': [
             { 'width': '5%', 'targets': 0 }
           ],
@@ -64,8 +73,6 @@ if(report.)
   }
 
   ngAfterViewInit() {
-
-drawPieChart(this.myCanvas.nativeElement);
 drawLineGraph(this.lineGraph.nativeElement);
 
 
@@ -145,66 +152,67 @@ const context = (<HTMLCanvasElement>canvas).getContext('2d');
 }
 
 
-function drawPieChart(canvas) {
-const context = (<HTMLCanvasElement>canvas).getContext('2d');
+
+  }
+
+ drawPieChart(canvas,data) {
+    const context = (<HTMLCanvasElement>canvas).getContext('2d');
 
 
-    const myChart = new Chart(context, {
-        type: 'pie',
-        data: {
-            labels: ['Poor', 'Medium', 'Good'],
+        const myChart = new Chart(context, {
+            type: 'pie',
+            data: {
+                labels: ['Poor', 'Medium', 'Good'],
 
-            datasets: [{
-                label: '# of Votes',
-                data: [10, 30, 35],
-                backgroundColor: [
-                    '#FF9999',
-                    '#FFFF99',
-                    '#B2FF66'
-                ],
-                borderColor: [
-                  'red',
-                  'orange',
-                  'green'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          title: {
-            display: true,
-            text: ['Report Quality Analysis', '(Total no. Of Reports vs Quality)'],
-            fontSize: 13
-        },
-            scales: {
-                yAxes: [{
-                  gridLines: {
-                    drawBorder: false,
-                    display: false
-                  },
-                    ticks: {
-                        beginAtZero: true,
-                        display: false
-                    }
-                }],
-                xAxes: [{
-                  gridLines: {
-                    drawBorder: false,
-                    display: false,
-                  },
-                   ticks: {
-                        beginAtZero: true,
-                        display: false
-                    }
+                datasets: [{
+                    label: '# of Votes',
+                    data: data,
+                    backgroundColor: [
+                        '#FF9999',
+                        '#FFFF99',
+                        '#B2FF66'
+                    ],
+                    borderColor: [
+                      'red',
+                      'orange',
+                      'green'
+                    ],
+                    borderWidth: 1
                 }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              title: {
+                display: true,
+                text: ['Report Quality Analysis', '(Total no. Of Reports vs Quality)'],
+                fontSize: 13
+            },
+                scales: {
+                    yAxes: [{
+                      gridLines: {
+                        drawBorder: false,
+                        display: false
+                      },
+                        ticks: {
+                            beginAtZero: true,
+                            display: false
+                        }
+                    }],
+                    xAxes: [{
+                      gridLines: {
+                        drawBorder: false,
+                        display: false,
+                      },
+                       ticks: {
+                            beginAtZero: true,
+                            display: false
+                        }
+                    }]
+                }
             }
-        }
-    });
-  }
-  }
-
+        });
+      }
 
 
 

@@ -7,45 +7,45 @@
       <h4>50</h4>
       <span style="font-size:14px;">Total no. of Visits</span>
       <hr>
-      <i class="fa fa-clock-o"></i><span style="font-size:12px;margin-left:2px"> update 9.25 am</span>
+      <i class="fa fa-clock-o"></i><span style="font-size:12px;margin-left:2px"> update {{currTime}}</span>
 
 </div>
 <div class="col-3 shadow rounded mr-2  mt-2  "  style="background-color:rgb(40, 144, 196);text-align:center;padding-top:1px;color:#ffffff">
 
-    <h4>100</h4>
+    <h4 *ngIf="reportList">{{reportList.length}}</h4>
     <span style="font-size:14px;">Total no. of Reports</span>
     <hr>
-    <i class="fa fa-clock-o"></i><span style="font-size:12px;margin-left:2px"> update 9.25 am</span>
+    <i class="fa fa-clock-o"></i><span style="font-size:12px;margin-left:2px">  update {{currTime}}</span>
 
     </div>
 <div class="col-3 shadow rounded mr-2 mt-2  "  style="background-color:#36486b;text-align:center;padding-top:1px;color:#ffffff">
 
 
-  <h4>20</h4>
+  <h4 *ngIf="reportList">{{reportList.length}}</h4>
 <span style="font-size:14px;">Total no. of Recently saved Reports</span>
 <hr>
-<i class="fa fa-clock-o"></i><span style="font-size:12px;margin-left:2px"> update 9.25 am</span>
+<i class="fa fa-clock-o"></i><span style="font-size:12px;margin-left:2px">  update {{currTime}}</span>
 </div>
 <div class="col shadow rounded mr-2 mt-2  "  style="background-color:#4040a1;text-align:center;padding-top:1px;color:#ffffff">
 
 
-  <h4>10</h4>
+  <h4>{{reportQual['poor']}}</h4>
   <span style="font-size:14px;">Total no. of Poor quality Reports</span>
   <hr>
-  <i class="fa fa-clock-o"></i><span style="font-size:12px;margin-left:2px"> update 9.25 am</span>
+  <i class="fa fa-clock-o"></i><span style="font-size:12px;margin-left:2px">  update {{currTime}}</span>
 
 </div>
 </div>
 
 <div class="row" >
-  <div class="col-4 ml-2 mt-3 mr-3 border" >
+  <div class="col-4 ml-2 mt-3 mr-3 border" style="background-color:#c8d8f8" >
     <canvas id="myChart"  #myChart1 ></canvas>
   </div>
-   <div class="col mr-2 mt-3 border " style="color:rgb(78, 78, 78);padding:3px">
+   <div class="col mr-2 mt-3 border " style="color:rgb(78, 78, 78);padding:3px;background-color:#e6edfa">
     <div *ngIf="reportList;else noReport">
     <h6 style="text-align:center;margin-top:3px;font-weight:bold;" > Recent Activity</h6>
 
-          <table id="reports" class="table table-striped table-sm" cellspacing="0" width="100%" >
+          <table id="reports" class="table table-striped table-sm" cellspacing="0" width="100%" style="font-size:14px" >
 
               <thead>
                   <tr>
@@ -80,7 +80,7 @@
           </div>
           </div>
           <div class="row ">
-          <div class="col-12 ml-2 mr-3 mt-2 border ">
+          <div class="col-12 ml-2 mr-3 mt-2 border " style="background-color:#dbdde0">
               <canvas id="myChart2"  #myChart2 ></canvas>
             <!-- <div class="card shadow bg-white rounded">
                   <div class="card-header">

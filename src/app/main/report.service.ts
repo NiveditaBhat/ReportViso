@@ -228,6 +228,7 @@ return {
  name : reportRecieved.name,
  lastModi: reportRecieved.lastModi,
  fileTyp: reportRecieved.fileTyp,
+ quality: reportRecieved.quality,
  content : reportRecieved.content,
  id : reportRecieved._id,
  creator: reportRecieved.creator
