@@ -35,12 +35,14 @@ background-color:#e9eef3;
 }
 */
 
+
+
 html, body {
+
   height: 100%;
+
+
 }
-
-
-
 
 hr {
   margin:5px;
@@ -48,8 +50,7 @@ hr {
 
 .container-fluid {
   background-color:#f1f7fd;
-
-  height:90vh;
+height:100vh;
   font-family: Helvetica, sans-serif;
 
   }

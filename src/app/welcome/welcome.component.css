@@ -2,10 +2,14 @@
 
 
 .title1 {
-  padding-top:25%;
-margin-left:7%;
+
+text-align:center;
 line-height: 100px;
 
+}
+
+hr {
+  border-color:white;
 }
 
 .viso {
