@@ -1,6 +1,10 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <a class="navbar-brand" href="#">
-    <span style="Font-size:25px;color:#007bff;"><i class="fa fa-bar-chart"></i>&nbsp;<span style="color:rgba(255, 255, 255, 0.856)">Report</span>Viso</span>
+
+    <span style="Font-size:25px;color:#007bff;">
+
+        <a *ngIf="isAuthenticated && isPanelLoaded" style="padding:15px;color:white" href="#sidebar" data-toggle="collapse" id="collapseBar"  #collapseBar><i class="fa fa-navicon"></i></a>
+      <i class="fa fa-bar-chart"></i>&nbsp;<span style="color:rgba(255, 255, 255, 0.856)">Report</span>Viso</span>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
@@ -10,8 +14,7 @@
   <!--  <li class="nav-item active" style="padding-right:35px">
         <a  style="cursor: pointer;" class="btn-expand-collapse"><i class="fa fa-bars" style="color:white;"></i></a>
       </li>-->
-      <li class="nav-item side" *ngIf="isAuthenticated && isPanelLoaded">
-          <a class="nav-link" href="#sidebar" data-toggle="collapse" id="collapseBar"  #collapseBar><i class="fa fa-navicon fa-lg"></i></a>
+      <li class="nav-item side" >
         </li>
 
 

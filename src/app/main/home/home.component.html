@@ -1,46 +1,40 @@
-<div class="row ">
 
-    <div class="col-3 shadow rounded mr-2 ml-2 mt-2 "  style="background-color:#618685;text-align:center;padding-top:1px;color:#ffffff">
+
+<div class="row pt-2 pr-2 pl-2">
+    <div class="col-sm-4  borderCustm  "  style="text-align:center;background-color:#d5e6f8">
 
 
       <h4>50</h4>
       <span style="font-size:14px;">Total no. of Visits</span>
       <hr>
       <i class="fa fa-clock-o"></i><span style="font-size:12px;margin-left:2px"> update {{currTime}}</span>
-
+<hr class="d-block d-sm-none cstm">
 </div>
-<div class="col-3 shadow rounded mr-2  mt-2  "  style="background-color:rgb(40, 144, 196);text-align:center;padding-top:1px;color:#ffffff">
+<div class="col-sm-4 borderCustm    "  style="text-align:center;background-color:#d5e6f8">
 
     <h4 *ngIf="reportList">{{reportList.length}}</h4>
     <span style="font-size:14px;">Total no. of Reports</span>
     <hr>
     <i class="fa fa-clock-o"></i><span style="font-size:12px;margin-left:2px">  update {{currTime}}</span>
-
+    <hr class="d-block d-sm-none cstm">
     </div>
-<div class="col-3 shadow rounded mr-2 mt-2  "  style="background-color:#36486b;text-align:center;padding-top:1px;color:#ffffff">
 
-
-  <h4 *ngIf="reportList">{{reportList.length}}</h4>
-<span style="font-size:14px;">Total no. of Recently saved Reports</span>
-<hr>
-<i class="fa fa-clock-o"></i><span style="font-size:12px;margin-left:2px">  update {{currTime}}</span>
-</div>
-<div class="col shadow rounded mr-2 mt-2  "  style="background-color:#4040a1;text-align:center;padding-top:1px;color:#ffffff">
+<div class="col-sm  borderCustm    "  style="text-align:center;padding-top:1px;background-color:#d5e6f8">
 
 
   <h4>{{reportQual['poor']}}</h4>
   <span style="font-size:14px;">Total no. of Poor quality Reports</span>
   <hr>
   <i class="fa fa-clock-o"></i><span style="font-size:12px;margin-left:2px">  update {{currTime}}</span>
-
+  <hr class="d-block d-sm-none cstm">
 </div>
 </div>
 
-<div class="row" >
-  <div class="col-4 ml-2 mt-3 mr-3 border" style="background-color:#c8d8f8" >
+<div class="row pt-2 pl-2 pr-2" >
+  <div class="col-sm-4 mr-2   border" style="background-color:#c8d8f8" >
     <canvas id="myChart"  #myChart1 ></canvas>
   </div>
-   <div class="col mr-2 mt-3 border " style="color:rgb(78, 78, 78);padding:3px;background-color:#e6edfa">
+   <div class="col-sm border " style="color:rgb(78, 78, 78);padding:3px;background-color:#e6edfa">
     <div *ngIf="reportList;else noReport">
     <h6 style="text-align:center;margin-top:3px;font-weight:bold;" > Recent Activity</h6>
 
@@ -78,94 +72,10 @@
           </ng-template>
           </div>
           </div>
-          <div class="row ">
-          <div class="col-12 ml-2 mr-3 mt-2 border " style="background-color:#dbdde0">
+          <div class="row pl-2 pr-2 pt-2">
+  <div class="col-sm-12 border " style="background-color:#dbdde0;">
               <canvas id="myChart2"  #myChart2 ></canvas>
-            <!-- <div class="card shadow bg-white rounded">
-                  <div class="card-header">
-                <h6>    Please choose one of the following options to continue</h6>
-                  </div>
-                  <div class="card-body">
-
-        <div class="well">
-
-                    <form #mainForm="ngForm" class="border" (submit)="onMainSubmitted(mainForm)">
-
-                       <div class="form-group">
-
-                         </div>
-                            <div class="form-group">
-                                <div>
-                                    <input type="radio"  name="visualize" value="old"  [ngModel]="selected" #visualize="ngModel">
-                                   Visualize Existing Report
-                                  </div>
-                                </div>
-            <div class="form-group">
-
-                <div>
-                  <input type="radio" name="visualize" value="new"   [ngModel]="selected" #visualize="ngModel">
-                 Visualize new Report
-        </div>
                 </div>
-        <div class="row">
-        <div class="col-md-12">
-          <button id="submit" class="btn btn-primary btn-block " type="submit">Go</button>
-        </div>
-        </div>
-              </form>
-                  </div>
-                    </div>
-                  </div>-->
-
-                </div>
-
-
-</div>
-<!--
-<div class="row">
-  <div class="col-4 ml-2 mr-2 shadow" style="background-color:#a8f1f7;height:200px">
-    <canvas id="myChart2"  #myChart2 width="200" height="200"></canvas>
-
-    </div>
-    <div class="col">
-  </div>
-
-
-<!--<div class="row" *ngIf="selected === 'new' || !reportList">
-  <div class="col-sm-2 col-1 col-md-4 col-lg-4 col-xl-4">
-
-
-  </div>
-  <div class="col-sm-8 col-10 col-md-4 col-lg-4 col-xl-4">
-      <div class="card shadow p-3 mb-5 bg-white rounded">
-          <div class="card-header">
-        <h6 *ngIf="!reportList"> You have no Reports saved. </h6>
-        <h6>Please Visualize a new Report to continue</h6>
-          </div>
-          <div class="card-body">
-
-<div class="well">
-<form #uploadReport="ngForm" (submit)="reportSubmitted(uploadReport)">
-
-
- <div class="form-group">
-      <input type="file" class="form-control-file" name="reportFile" ngModel #reportFile="ngModel" (change)="onFileUpload($event)" required>
-    </div>
-
-    <div class="form-group">
-    <button type="submit" class="btn btn-primary btn-block" [disabled]="!uploadReport.valid">Visualize</button>
-          </div>
-          </form>
-          </div>
-
-            </div>
-          </div>
-
-        </div>
-
-        <div class="col-sm-2 col-1 col-md-4 col-lg-4 col-xl-4">
-      </div>
 </div>
 
--->
 <app-loader *ngIf="loader"></app-loader>

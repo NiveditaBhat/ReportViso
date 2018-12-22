@@ -1,9 +1,15 @@
 
-<div class="col-md-12 col-12 col-lg-12  p-l-0 p-r-0 collapse show width" id="sidebar" >
+<div class="col-sm-12 pl-0 pr-0 collapse show width " id="sidebar" >
 
-    <div class="list-group panel">
-        <a class="list-group-item collapsed" data-parent="#sidebar"  [routerLink]="'/main/report/summary'" [routerLinkActive]="'active-link'"><i class="fa fa-file d-inline-block"></i> <span class="d-none d-lg-block">Summary Report</span></a>
+    <div class="list-group panel ">
+         <span class="d-block d-sm-none list-group-item repoSec"><b>S</b></span><span class="d-none d-lg-block list-group-item repoSec"><b>Report Section</b></span>
+        <a class="list-group-item collapsed active" data-parent="#sidebar"  [routerLink]="'/main/report/summary'" [routerLinkActive]="'active-link'"><i class="fa fa-file d-inline-block"></i> <span class="d-none d-lg-block">Summary Report</span></a>
         <a class="list-group-item collapsed" data-parent="#sidebar" [routerLink]="'/main/report/detail'" [routerLinkActive]="'active-link'"><i class="fa fa-list-alt" style="padding-right:5px"></i><span class="d-none d-lg-block">Detailed Report</span></a>
-        <a class="list-group-item collapsed" data-parent="#sidebar" [routerLink]="'/main/report/viewer'" [routerLinkActive]="'active-link'"><i class="fa fa-line-chart" style="padding-right:5px"></i> <span class="d-none d-lg-block">2D Viewer</span></a>
+        <a class="list-group-item collapsed" data-parent="#sidebar" [routerLink]="'/main/report/viewer'" [routerLinkActive]="'active-link'"><i class="fa fa-line-chart" style="padding-right:5px"></i> <span class="d-none d-lg-block ">2D Viewer</span></a>
+        <span class="d-block d-sm-none list-group-item repoSec"><b>E</b></span><span class="d-none d-lg-block list-group-item repoSec"><b>Extras</b></span>
+        <a class="list-group-item collapsed"  style="cursor: pointer;" data-parent="#sidebar" [routerLinkActive]="'active-link'" (click)="onSaveReportClicked()">  <i class="fa fa-save" style="padding-right:5px"></i> <span class="d-none d-lg-block"> Save Report</span></a>
+        <button type="button" class="btn btn-secondary backBtn d-none d-lg-block" name="backBtn" [routerLink]="['/main/reportList']">Back</button>
+        <button type="button" class="btn btn-secondary backBtn d-block d-sm-none" name="backBtn" [routerLink]="['/main/reportList']">  <b> <i class="fa fa-angle-double-left" style="padding-right:5px"></i> </b></button>
+
     </div>
 </div>

@@ -10,7 +10,7 @@ import { ReportService } from '../report.service';
 })
 export class SidepanelComponent implements OnInit,OnDestroy {
   @Input() isAuthenticated ;
-
+  @Output() reportClicked = new EventEmitter();
 
   constructor(private authService: AuthService, private reportService: ReportService) { }
 
@@ -23,5 +23,8 @@ this.reportService.panelLoaded.next();
     this.reportService.panelUnLoaded.next();
   }
 
+  onSaveReportClicked() {
+this.reportClicked.emit();
+  }
 
 }

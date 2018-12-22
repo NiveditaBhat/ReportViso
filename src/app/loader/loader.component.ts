@@ -18,6 +18,8 @@ export class LoaderComponent implements OnInit,OnDestroy {
   ngOnDestroy() {
    // $('#basicExampleModal').modal('hide');
    $('.modal-backdrop').remove();
+   $('#basicExampleModal').remove();
+   $('body').css({paddingRight: '0'});
   }
 
 }

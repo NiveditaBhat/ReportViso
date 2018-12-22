@@ -10,10 +10,28 @@
 
   }
 
+  .borderCustm{
+border-left:2px solid #007bff;
+border-right:2px solid #007bff;
+  }
 
+  .borderCustm2 {
+    border-right:2px solid #007bff;
+      }
+
+.cstm {
+  border-color:black;
+  width:100%;
+  padding:2px;
+}
+
+.flex-fill {
+  flex:1;
+}
   hr {
-    margin: 0em;
-    border-color:white;
+    margin: auto;
+    border-color:#007bff;
+    width:50%;
   }
 
   table.dataTable thead {background-color:grey}

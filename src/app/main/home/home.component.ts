@@ -40,6 +40,7 @@ this.loader = true;
 
        if (reportList) {
         this.loader = false;
+
      reportList.forEach((report) => {
 
   this.reportQual[report.quality] = + this.reportQual[report.quality] + 1;

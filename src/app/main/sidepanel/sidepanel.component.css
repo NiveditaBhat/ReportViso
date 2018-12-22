@@ -1,10 +1,28 @@
 #sidebar {
-
+  height: 100vh;
   background-color: #333;
-  height:90vh;
-  top:0;
 
 }
+
+#sidebar .backBtn {
+  position: absolute;
+bottom:0;
+width:100%;
+color: #ccc;
+border:0;
+background-color:rgba(0, 0, 0, 0.842);
+
+}
+
+.repoSec {
+  color:#007bff;
+text-align:center;
+font-size:17px;
+padding:10px;
+background-color:rgba(0, 0, 0, 0.842);
+}
+
+
 
 
 #sidebar .list-group-item {
@@ -13,25 +31,21 @@
   color: #ccc;
   border-left: 0;
   border-right: 0;
-  border-color: #2c2c2c;
+  border-color: #4d4c4c;
   white-space: nowrap;
   text-decoration: none;
-  cursor: pointer;
-font-size:15px;
+  font-size:15px;
 }
 
-#sidebar .list-group-item:hover {
-background-color:#67737e78;
-}
+
+
+
+
 
 #sidebar .list-group-item:active {
-background-color:#67737e78;
-}
+  background-color:rgb(95, 95, 95);
+ }
 
-#sidebar .list-group-item:focus {
-background-color:#67737e78;
-outline: none;
-}
 
 /* highlight active menu */
 #sidebar .list-group-item:not(.collapsed) {
@@ -55,7 +69,7 @@ background-color: #222;
 content: " \f0da";
 font-family: FontAwesome;
 display: inline;
-text-align: left;
+text-align: right;
 padding-left: 5px;
 }
 
@@ -79,12 +93,12 @@ padding-left: 40px;
   #sidebar .list-group .collapse.in, #sidebar .list-group .collapsing {
       position: absolute;
       z-index: 1;
-      width: 190px;
+      width: 150px;
   }
   #sidebar .list-group > .list-group-item {
       text-align: center;
       padding: .75rem .5rem;
-      min-width: 39px;
+      min-width: 100px;
   }
   /* hide caret icons of top level when collapsed */
   #sidebar .list-group > .list-group-item[aria-expanded="true"]::after,
@@ -98,13 +112,13 @@ padding-left: 40px;
 -webkit-transition-timing-function: ease;
      -o-transition-timing-function: ease;
         transition-timing-function: ease;
--webkit-transition-duration: .1s;
-     -o-transition-duration: .1s;
-        transition-duration: .1s;
+-webkit-transition-duration: .2s;
+     -o-transition-duration: .2s;
+        transition-duration: .2s;
 }
 
 #sidebar.collapsing {
-
+opacity: 0.8;
 width: 0;
 -webkit-transition-timing-function: ease-in;
      -o-transition-timing-function: ease-in;
