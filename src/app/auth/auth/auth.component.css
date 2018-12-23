@@ -12,7 +12,7 @@ text-align: center;
   border-width:2px;
 }
 
-.card-header a {
+.card-header .btn {
 
   color: white;
   font-weight: bold;
@@ -28,9 +28,6 @@ background-color:#007bffc7;
 
 }
 
-.card-header a:hover{
-  background-color:#014894;
-}
 
 
 
@@ -41,6 +38,6 @@ background-color:#007bffc7;
   padding:0;
 }
 
- a:active,a:active{
+.card-header a:active{
   background-color:#014894;
 }

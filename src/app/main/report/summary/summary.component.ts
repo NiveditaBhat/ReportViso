@@ -34,6 +34,8 @@ $('#summary').DataTable({
  'columnDefs': [
     {'width': '20%', 'targets': 0 }
   ],
+  scrollY:        true,
+  scrollCollapse: true,
   paging:         false,
   'searching': false,
   'bInfo' : false,

@@ -33,8 +33,19 @@
           <button type="submit" class="btn btn-primary btn-block">Save</button>
 
         </form>
+        <form *ngIf="upload" #uploadReport="ngForm" (submit)="reportSubmittedClicked(uploadReport)">
+
+
+            <div class="form-group">
+                 <input type="file" class="form-control-file" name="reportFile" ngModel #reportFile="ngModel" (change)="onFileUpload($event)" required>
+               </div>
+
+               <div class="form-group">
+               <button type="submit" class="btn btn-primary btn-block" [disabled]="!uploadReport.valid">Visualize</button>
+                     </div>
+                     </form>
         </div>
-        <div class="modal-footer" *ngIf="!textbox">
+        <div class="modal-footer" *ngIf="!textbox && !upload">
           <button  type="button" class="btn btn-secondary btn-block" data-dismiss="modal" (click)="onOkClicked()">OK</button>
 
         </div>

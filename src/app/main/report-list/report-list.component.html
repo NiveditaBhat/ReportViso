@@ -1,8 +1,28 @@
+<!--<div class="row">
+    <div class="col-sm-12 border mt-2 ml-1 " style="background-color:#01489411;">
+<div class="row h-100">
+<div class="col-12 mt-5 mx-auto my-auto">
+<img style="display:block;margin-left:auto;margin-right:auto" src="http://kcmuco.ac.tz/wp-content/uploads/2018/10/pointer-down.gif" alt="pointer" width="60" id="handPointer">
+      <h6 style="padding:10px;text-align:center;font-weight:bold">Visualize new report</h6>
+      <form #uploadReport="ngForm" (submit)="reportSubmitted(uploadReport)">
 
-  <div class="row h-100  pr-2 pl-2 mb-2 my-auto">
-      <div class="col-sm-9 mt-2 mr-1 border " >
+
+          <div class="form-group">
+               <input type="file" class="form-control-file" name="reportFile" ngModel #reportFile="ngModel" (change)="onFileUpload($event)" required>
+             </div>
+
+             <div class="form-group">
+             <button type="submit" class="btn btn-primary btn-block" [disabled]="!uploadReport.valid">Visualize</button>
+                   </div>
+                   </form>
+                   </div>
+      </div>
+      </div>
+</div>-->
+  <div class="row  pr-2 pl-2 mb-2 my-auto">
+      <div class="col-sm-12 mt-2 mr-1 border " >
 <h5>Your Reports</h5>
-                  <table    id="reportList" class="table table-striped  "  width="100%" *ngIf="reportList.length > 0">
+                  <table    id="reportList" class="table table-striped  "   width="100%" *ngIf="reportList.length > 0">
 
                     <thead>
                         <tr>
@@ -27,10 +47,17 @@
                       <tr>
                         <td colspan="3">
                         <div class="row">
-                            <div class="col-md-6 col-6 col-l-6 col-xl-6 pr-0">
-                            <button id="visualize" class="btn btn-primary btn-block " type="button" [disabled]="isVislizeDis()" (click)="onVisualize()">Visualize</button>
+                            <div class="col-sm-4 pr-0">
+                            <button id="visualize" class="btn btn-primary btn-block " type="button" [disabled]="isVislizeDis()" (click)="onVisualize()">Visualize Existing Report</button>
+                            <hr class="d-block d-sm-none">
+                            <hr class="d-block d-sm-none">
 </div>
-<div class="col-md-6 col-6 col-l-6 col-xl-6 pl-1">
+<div class="col-sm-4 pr-0 ">
+    <button id="visualize" class="btn btn-secondary btn-block " type="button"  (click)="onVisualizeExisting()" >Visualize New Report</button>
+    <hr class="d-block d-sm-none">
+    <hr class="d-block d-sm-none">
+</div>
+<div class="col-sm-4 pr-0">
                               <button id="delete" class="btn btn-danger btn-block " type="button" (click)="onDeleteClicked()" [disabled]="isDelDis()">Delete</button>
 </div>
                             </div>
@@ -47,28 +74,14 @@
                 You have no reports to be displayed
 </div>
 
-
+<hr>
         </div>
-        <div class="col-sm border mt-2 ml-1 border border-secondary" style="background-color:rgb(223, 223, 223)">
-<div class="row h-100">
-  <div class="col-12 mt-5 mx-auto">
-    <img style="display:block;margin-left:auto;margin-right:auto" src="http://kcmuco.ac.tz/wp-content/uploads/2018/10/pointer-down.gif" alt="pointer" width="60" id="handPointer">
-          <h6 style="padding:10px;text-align:center;font-weight:bold">Visualize new report</h6>
-          <form #uploadReport="ngForm" (submit)="reportSubmitted(uploadReport)">
+      </div>
 
-
-              <div class="form-group">
-                   <input type="file" class="form-control-file" name="reportFile" ngModel #reportFile="ngModel" (change)="onFileUpload($event)" required>
-                 </div>
-
-                 <div class="form-group">
-                 <button type="submit" class="btn btn-primary btn-block" [disabled]="!uploadReport.valid">Visualize</button>
-                       </div>
-                       </form>
-                       </div>
-          </div>
-          </div>
-    </div>
-
+<br/>
+<br/>
+<br/>
+<br/>
 <app-dialog *ngIf="delDialog"  [message]="message"  [title]="title"  (okClicked)="onOk($event)" ></app-dialog>
+<app-dialog *ngIf="newRepo"  [upload]="true"  [title]="title"  (newReportSubmitted)="reportSubmitted($event)" ></app-dialog>
 <app-loader *ngIf="loader"></app-loader>

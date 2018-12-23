@@ -19,7 +19,7 @@ title;
 message;
 delDialog = false;
 loader = false;
-
+newRepo = false;
   constructor(private reportService: ReportService, private router: Router, private activatedRouter: ActivatedRoute) { }
 
   ngOnInit() {
@@ -58,7 +58,7 @@ this.loader = false;
     this.reportService.onFileSelect(event);
       }
 
-      reportSubmitted(form: NgForm) {
+      reportSubmitted() {
         this.router.navigate(['/main/report/summary'], {relativeTo: this.activatedRouter});
       //  this.router.navigate(['main/report', {outlets: {primary: ['SummaryComponent'],
        // secondchild: ['SidepanelComponent']}}]);
@@ -70,6 +70,12 @@ this.loader = false;
     for (let i = 0; i < this.reportList.length; i++ ) {
   this.reportList[i].state = (event.target as HTMLInputElement).checked;
        }
+  }
+
+  onVisualizeExisting(){
+    this.newRepo = true;
+this.title = 'Please upload a new report';
+
   }
 
   onDeleteClicked() {

@@ -22,4 +22,5 @@ export class LoaderComponent implements OnInit,OnDestroy {
    $('body').css({paddingRight: '0'});
   }
 
+
 }
