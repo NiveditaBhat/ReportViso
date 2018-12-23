@@ -22,7 +22,7 @@ export class DetailedTableComponent implements OnInit {
     const jsonString = this.reportService.getReportCSV();
       $('#detailTable').DataTable( {
         'scrollX': true,
-        scrollY:        '70vh',
+
         scrollCollapse: true,
         'data': jsonString,
         'columns': [

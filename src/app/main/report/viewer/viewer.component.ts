@@ -91,6 +91,8 @@ const drag = d3.behavior.drag()
     const viewer = '#viewer';
     // Adds the svg canvas
     const svg = d3.select(viewer).append('svg')
+    //.attr('preserveAspectRatio', 'xMinYMin meet')
+//.attr('viewBox', '0 0 960 500')
       .attr('width', width + margin.left + margin.right)
       .attr('height', height + margin.top + margin.bottom)
       .append('g')
