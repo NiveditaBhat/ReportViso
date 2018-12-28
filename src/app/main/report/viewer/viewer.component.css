@@ -12,7 +12,14 @@ h5 {
   stroke: black;
 }
 
-#gui {  }
+
+input[type="text"] {
+  height:20px;
+}
+
+#gui {
+
+ }
 
 
 

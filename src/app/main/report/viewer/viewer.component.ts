@@ -41,7 +41,7 @@ expanded = false;
     const data = this.reportService.getReportCSV();
 
 
-    const margin = { top: 15, right: 35, bottom: 35, left: 35 },
+    const margin = { top: 15, right: 15, bottom: 25, left: 25 },
       width = 580 * 1.5 - margin.left - margin.right,
       height = 270 * 1.6 - margin.top - margin.bottom;
     // Parse the date / time
@@ -91,10 +91,10 @@ const drag = d3.behavior.drag()
     const viewer = '#viewer';
     // Adds the svg canvas
     const svg = d3.select(viewer).append('svg')
-    //.attr('preserveAspectRatio', 'xMinYMin meet')
-//.attr('viewBox', '0 0 960 500')
-      .attr('width', width + margin.left + margin.right)
-      .attr('height', height + margin.top + margin.bottom)
+   .attr('preserveAspectRatio', 'xMinYMin meet')
+.attr('viewBox', '0 0 960 500')
+    //  .attr('width', width + margin.left + margin.right)
+     // .attr('height', height + margin.top + margin.bottom)
       .append('g')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
       .call(zoom);
@@ -296,7 +296,7 @@ const drag = d3.behavior.drag()
        .style('stroke-width', '1');
       }
     };
-    const gui = new dat.GUI({ autoPlace: false, height: 500 });
+    const gui = new dat.GUI({ autoPlace: false, height: 500, width: 400  });
     $('#gui').append($(gui.domElement));
     const f1 = gui.addFolder('Weld Point');
     const weldSize = f1.add(text, 'size').min(2).max(6).step(0.25).name('Size');

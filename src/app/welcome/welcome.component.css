@@ -1,15 +1,41 @@
+.welcome {
+  background-image:url(http://www.portoalegre.travel/upload/b/61/610443_data-wallpaper.jpg);
+  color:white;
+  background-repeat: no-repeat;
+  height:calc(100vh - 30px);
+  background-size: cover;
 
 
+}
 
+.features {
+
+
+  background-color:#f1f7fd;
+  text-align:center;
+  padding:6%;
+
+}
+
+.container-fluid {
+  font-family: Helvetica, sans-serif;
+}
 .title1 {
 
-text-align:center;
+padding:5%;
 line-height: 100px;
+margin-left:2%;
+margin-right:2%;
+background:  linear-gradient(
+  rgba(88, 88, 88, 0.45),
+  rgba(139, 139, 139, 0.589)
+);
 
 }
 
 hr {
-  border-color:white;
+  border-color:rgb(212, 211, 211);
+  margin:2em;
 }
 
 .viso {

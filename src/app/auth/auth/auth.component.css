@@ -41,3 +41,13 @@ background-color:#007bffc7;
 .card-header a:active{
   background-color:#014894;
 }
+
+.auth {
+  background-image:url(http://www.portoalegre.travel/upload/b/61/610443_data-wallpaper.jpg);
+  background-repeat: no-repeat;
+  height:100vh;
+  overflow: auto;
+  background-position: left center;
+  background-size: cover;
+}
+

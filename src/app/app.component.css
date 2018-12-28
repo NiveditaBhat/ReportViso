@@ -36,10 +36,16 @@ background-color:#e9eef3;
 */
 
 
+
+
+
 html, body {
 
   height: 100%;
+  background-color:#f1f7fd;
 
+
+  font-family: Helvetica, sans-serif;
 
 }
 

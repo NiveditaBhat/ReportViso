@@ -1,4 +1,8 @@
 
+.navbar {
+  font-family: Helvetica, sans-serif;
+}
+
 .dropdown-menu {
   min-width: 60px !important;
 }
@@ -48,6 +52,28 @@
 .navbar-primary.collapsed .nav-label {
   display: none;
 }
+
+.nav-item .nav-link {
+  color:white !important;
+
+  }
+
+.nav-item a:focus {
+color:grey;
+font-weight: bold;
+}
+
+.nav-item a:visited {
+  color:grey;
+  font-weight: bold;
+ }
+
+ .nav-item a:hover {
+  color:grey;
+font-weight: bold;
+ }
+
+
 
 .btn-expand-collapse {
   position: absolute;
