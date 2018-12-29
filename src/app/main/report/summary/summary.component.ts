@@ -80,6 +80,7 @@ qualityMeterData = [summary.reportQuality.value, 100 - Number(summary.reportQual
             circumference: 1 * Math.PI,
             responsive: true,
             maintainAspectRatio: false,
+
               scales: {
                   yAxes: [{
                     gridLines: {

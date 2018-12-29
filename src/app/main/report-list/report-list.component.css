@@ -33,7 +33,14 @@ hr {
   h5 {
     width:100%;
    padding:5px;
-   background-color:#014894;
+   background:linear-gradient(#084666, #0c87c5) ;
    color:white;
 
   }
+  .table th{
+    background-color:#0b608a71;
+
+}
+
+tr:nth-child(even) {background: #0b608a15}
+tr:nth-child(odd) {background: #FFF}

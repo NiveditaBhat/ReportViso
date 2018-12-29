@@ -97,10 +97,10 @@ const context = (<HTMLCanvasElement>canvas).getContext('2d');
         datasets: [{
             label: 'Data',
             borderColor: 'grey',
-            pointBorderColor: 'blue',
-            pointBackgroundColor: 'blue',
-            pointHoverBackgroundColor: 'blue',
-            pointHoverBorderColor: 'blue',
+            pointBorderColor: '#007bff',
+            pointBackgroundColor: '#007bff',
+            pointHoverBackgroundColor: '#007bff',
+            pointHoverBorderColor: '#007bff',
             pointBorderWidth: 2,
             pointHoverRadius: 8,
             pointHoverBorderWidth: 1,
@@ -161,7 +161,7 @@ const context = (<HTMLCanvasElement>canvas).getContext('2d');
 
 
         const myChart = new Chart(context, {
-            type: 'pie',
+            type: 'doughnut',
             data: {
                 labels: ['Poor', 'Medium', 'Good'],
 
@@ -189,6 +189,10 @@ const context = (<HTMLCanvasElement>canvas).getContext('2d');
                 text: ['Report Quality Analysis', '(Total no. Of Reports vs Quality)'],
                 fontSize: 13
             },
+            legend: {
+              display: false
+            },
+
                 scales: {
                     yAxes: [{
                       gridLines: {

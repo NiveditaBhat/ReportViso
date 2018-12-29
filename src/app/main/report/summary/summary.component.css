@@ -11,3 +11,10 @@ h5 {
 
 }
 
+.table th{
+  background-color:#0b608a71;
+
+}
+
+tr:nth-child(even) {background: #0b608a15}
+tr:nth-child(odd) {background: #FFF}

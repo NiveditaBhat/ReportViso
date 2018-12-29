@@ -4,10 +4,39 @@
   border-color:rgb(100, 100, 100);
 }
 
-.card {
-  background-color:#343a401f;
 
 
+  .ra {
+    text-align:center;
+    margin-top:3px;
+    font-weight:bold;
+padding:3px;
+    color:rgb(53, 52, 52);
+
+  }
+
+
+
+  .table th{
+    background-color:#b7d6f8d3;
+
+}
+
+tr:nth-child(even) {background:#e5f0fcd3 }
+tr:nth-child(odd) {background: #FFF}
+
+
+  .summary {
+    text-align:center;
+    background:linear-gradient(#c1dcf8d3,#bbd8f8d3,#9cc8f7d3,#75b4f7d3);
+color:rgb(66, 65, 65);
+
+  }
+
+  .brief {
+padding:0;
+margin:0.2%;
+margin-top:0.5%;
   }
 
   .borderCustm{
@@ -29,8 +58,8 @@ border-left:2px solid white;
 }
   hr {
     margin: auto;
-    border-color:white;
-    width:50%;
+
+
   }
 
   table.dataTable thead {background-color:grey}
@@ -40,26 +69,9 @@ border-left:2px solid white;
     height: 100%;
 }
 
-  .card-header a {
 
-    color: white;
-    font-weight: bold;
-  background-color:#007bffc7;
-    width:100%;
 
-    text-decoration: none;
-    display: inline-block;
-    padding-top:5px;
-    padding-bottom: 5px;
-    padding-left:0;
-    padding-right:0;
 
-  }
-
-  .card-header a:hover{
-    background-color:#014894;
-
-  }
 
   .file {
     visibility: hidden;
@@ -67,16 +79,8 @@ border-left:2px solid white;
   }
 
 
-  .card-header {
-text-align: center;
-    color:#343a40;
 
 
-  }
-
-  .card-body {
-    background-color:rgb(243, 241, 241);
-  }
 
   .form-group {
     padding-left:10px;
