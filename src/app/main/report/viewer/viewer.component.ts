@@ -296,7 +296,7 @@ const drag = d3.behavior.drag()
        .style('stroke-width', '1');
       }
     };
-    const gui = new dat.GUI({ autoPlace: false, height: 500, width: 400  });
+    const gui = new dat.GUI({ autoPlace: false });
     $('#gui').append($(gui.domElement));
     const f1 = gui.addFolder('Weld Point');
     const weldSize = f1.add(text, 'size').min(2).max(6).step(0.25).name('Size');

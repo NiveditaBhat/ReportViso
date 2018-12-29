@@ -20,6 +20,7 @@ textbox = false;
 
   ngOnInit() {
 //const reportProp = this.reportService.getReportProp();
+this.saveDialog = false;
 this.reportName = this.reportService.getRepoName();
 
   }

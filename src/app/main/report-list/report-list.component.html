@@ -1,7 +1,7 @@
 
-  <div class="row  pr-2 pl-2 mb-2 my-auto">
-      <div class="col-sm-12 mt-2 mr-1 border " >
-<h5>Your Reports</h5>
+  <div class="row pl-2 pr-2 " >
+      <div class="col-sm-12 mt-2 mr-2 ml-2  border " >
+<h5 *ngIf="reportList.length > 0" style="background-color:#014894;color:white">Your Reports</h5>
                   <table    id="reportList" class="table   "   width="100%" *ngIf="reportList.length > 0">
 
                     <thead>
@@ -38,7 +38,7 @@
     <hr class="d-block d-sm-none">
 </div>
 <div class="col-sm-4 pr-0">
-                              <button id="delete" class="btn btn-danger btn-block " type="button" (click)="onDeleteClicked()" [disabled]="isDelDis()">Delete</button>
+                              <button id="delete" class="btn btn-danger btn-block " type="button" (click)="onDeleteClicked()" [disabled]="isDelDis()">Delete Report(s)</button>
 </div>
                             </div>
                             </td>
@@ -49,14 +49,26 @@
 
 
 
+<div class="row noReport" *ngIf="reportList.length == 0">
+  <div class="col-sm-12" style="padding:6%">
 
-<div class="noReport" *ngIf="reportList.length == 0">
-                You have no reports to be displayed
+          <h5> You have no reports to be displayed</h5>
+          <hr style="padding:5px;width:50%;margin:auto">
+
+        <h6 style="padding:1%">Please upload a weld report to start visualizing</h6>
+        <button id="visualize" class="btn btn-primary" type="button"  (click)="onVisualizeExisting()" >Visualize New Report</button>
+
+      </div>
+
+
+
+
 </div>
 
 <hr>
         </div>
       </div>
+
 
 <br/>
 <br/>

@@ -28,7 +28,7 @@ tr:nth-child(odd) {background: #FFF}
 
   .summary {
     text-align:center;
-    background:linear-gradient(#c1dcf8d3,#bbd8f8d3,#9cc8f7d3,#75b4f7d3);
+    background:linear-gradient(#acd2fad3,#b3d6fcd3,#9cc8f7d3,#75b4f7d3);
 color:rgb(66, 65, 65);
 
   }

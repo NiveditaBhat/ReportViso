@@ -18,8 +18,23 @@ input[type="text"] {
 }
 
 #gui {
+position: absolute;
+right:0px !important;
+z-index: 0;
+top:0 !important;
 
- }
+}
+
+
+@media screen and (max-width: 720px) {
+  #gui {
+ transform:scale(0.5);
+
+ transform-origin: top top;
+
+  }
+}
+
 
 
 

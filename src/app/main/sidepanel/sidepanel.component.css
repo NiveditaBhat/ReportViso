@@ -5,9 +5,9 @@ height:100%;
 }
 
 #sidebar .backBtn {
-  position: absolute;
-bottom:12%;
-width:100%;
+  position: fixed;
+bottom:1%;
+width:23vh;
 color: #ccc;
 border:0;
 background-color:rgba(0, 0, 0, 0.842);
@@ -89,6 +89,11 @@ padding-left: 40px;
 }
 
 @media (max-width:48em) {
+
+  #sidebar .backBtn {
+width:10vh;
+
+  }
   /* overlay sub levels on small screens */
   #sidebar .list-group .collapse.in, #sidebar .list-group .collapsing {
       position: absolute;

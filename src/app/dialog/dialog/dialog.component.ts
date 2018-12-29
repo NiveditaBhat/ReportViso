@@ -29,7 +29,7 @@ export class DialogComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     $('.modal-backdrop').remove();
-    $('#basicExampleModal').remove();
+
   }
 
   onOkClicked() {
