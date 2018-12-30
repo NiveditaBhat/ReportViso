@@ -15,8 +15,10 @@ import { AuthGuard } from './auth/auth/auth-gaurd.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ViewerComponent } from './main/report/viewer/viewer.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { AboutComponent } from './about/about.component';
 
 const route: Routes = [ {path: '', component: WelcomeComponent},
+{path: 'about', component: AboutComponent},
 {path: 'auth', component: AuthComponent, children: [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent}

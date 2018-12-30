@@ -32,6 +32,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ViewerComponent } from './main/report/viewer/viewer.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ReversePipe } from './main/reversePipe.pipe';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ReversePipe } from './main/reversePipe.pipe';
     PageNotFoundComponent,
     ViewerComponent,
     WelcomeComponent,
-    ReversePipe
+    ReversePipe,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

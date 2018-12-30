@@ -1,0 +1,12 @@
+headerCstm {
+  padding:2%;
+}
+
+.carousel-inner img {
+  margin: auto;
+}
+
+
+span.carousel-control-prev-icon {
+  color:blue;
+}
