@@ -10,7 +10,7 @@ height:100vh;
 
 .what {
   background-color:#08476617;
-  padding:6%;
+  padding:4%;
 
 }
 
@@ -23,8 +23,9 @@ padding:3%;
 }
 
 .slider {
-  background:linear-gradient(#01263873,#06364eb0,#084766da);
+  background-color:#08476659;
   padding:3%;
+  color:black;
 }
 .container-fluid {
   font-family: Helvetica, sans-serif;
@@ -37,7 +38,7 @@ line-height: 100px;
 width:100%;
 background:  linear-gradient(
   rgba(22, 22, 22, 0.45),
-  rgba(26, 25, 25, 0.733)
+  rgba(95, 94, 94, 0.733)
 );
 text-align: center;
 }
