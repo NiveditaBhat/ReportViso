@@ -13,7 +13,7 @@ import * as Chart from 'chart.js';
 export class SummaryComponent implements OnInit {
 
 summary ;
-stpos = {};
+stpos = {'stpos1': 0,'stpos2': 0,'stpos3': 0,'stpos4': 0} ;
 @ViewChild('quality') qualityMeter: ElementRef;
   constructor(private reportService: ReportService, private activatedRoute: ActivatedRoute) { }
 

@@ -33,6 +33,7 @@ import { ViewerComponent } from './main/report/viewer/viewer.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ReversePipe } from './main/reversePipe.pipe';
 import { AboutComponent } from './about/about.component';
+import { WebsiteLoaderComponent } from './website-loader/website-loader.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { AboutComponent } from './about/about.component';
     ViewerComponent,
     WelcomeComponent,
     ReversePipe,
-    AboutComponent
+    AboutComponent,
+    WebsiteLoaderComponent
   ],
   imports: [
     BrowserModule,

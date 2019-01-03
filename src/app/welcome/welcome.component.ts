@@ -12,6 +12,7 @@ export class WelcomeComponent implements OnInit {
 
 
   ngOnInit() {
+
     this.router.events.subscribe(s => {
       if (s instanceof NavigationEnd) {
         const tree = this.router.parseUrl(this.router.url);

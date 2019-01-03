@@ -20,6 +20,7 @@ export class LoaderComponent implements OnInit,OnDestroy {
    $('.modal-backdrop').remove();
    $('#basicExampleModal').remove();
    $('body').css({paddingRight: '0'});
+   $('body').removeClass('modal-open');
   }
 
 

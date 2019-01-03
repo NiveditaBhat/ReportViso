@@ -28,7 +28,11 @@ export class DialogComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+
     $('.modal-backdrop').remove();
+    $('#basicExampleModal').remove();
+    $('body').css({paddingRight: '0'});
+    $('body').removeClass('modal-open');
 
   }
 

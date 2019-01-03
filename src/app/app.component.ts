@@ -17,11 +17,16 @@ export class AppComponent implements OnInit {
   isReprtPage = false;
   imagePreview;
   csvContent ;
+  loader = false;
   constructor(private authService: AuthService, private router: Router) {
 
   }
 
   ngOnInit() {
+    this.loader = true;
+    setTimeout(() => {
+this.loader =  false;
+    }, 2000);
     console.log('url:' + this.router.url);
     this.authService.authStatus.subscribe(
       (isAuthenticated) => {
