@@ -17,7 +17,7 @@ export class WelcomeComponent implements OnInit {
         const tree = this.router.parseUrl(this.router.url);
         if (tree.fragment) {
           const element = document.querySelector('#' + tree.fragment);
-          if (element) { element.scrollIntoView(); }
+          if (element) { element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'}); }
         }
       }
     });

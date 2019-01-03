@@ -6,6 +6,7 @@
   background-size: cover;
 padding:0;
 height:100vh;
+background-position: center bottom;
 }
 
 .what {
@@ -32,15 +33,13 @@ padding:3%;
 }
 .title1 {
 
-padding:8%;
+
 margin:0;
 line-height: 100px;
 width:100%;
-background:  linear-gradient(
-  rgba(22, 22, 22, 0.45),
-  rgba(95, 94, 94, 0.733)
-);
+
 text-align: center;
+
 }
 
 .iconCir {
