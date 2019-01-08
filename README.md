@@ -12,8 +12,9 @@ ReportViso is designed to showcase the the kind of work I have done in past as a
 
 ### 1.Front End 
 
-#### a) Angular 6  - It is used as the backbone for front end of the website. 
-The following some of the features of angular are used to design a responsive website
+#### a) Angular 6  
+
+It is used as the backbone for front end of the website. The following some of the features of angular are used to design a responsive website
 * Modules,Components,services
 * Data binding
 * Http client 
@@ -21,11 +22,16 @@ The following some of the features of angular are used to design a responsive we
 * Observers
 * Routing
 * Forms
-#### b) d3 – It is a javascript library for 2D visualizations. It is used to create 2D graph (svg) for visualizing weld points and curves.
-#### c) gui.dat – It is used for creating the interactive panel for interacting with 2D graph of weld points.
-#### d) Bootstrap 4 – It is used for styling the website by utilizing features like grid layout,cards, modal, buttons etc.
-#### e) chart.js -  It is a great library to create responsive charts.
-#### f) datatables with bootstrap – It is used for creating tables which are scalable,dynamic and responsive.
+#### b) d3 
+It is a javascript library for 2D visualizations. It is used to create 2D graph (svg) for visualizing weld points and curves.
+#### c) gui.dat 
+It is used for creating the interactive panel for interacting with 2D graph of weld points.
+#### d) Bootstrap 4 
+It is used for styling the website by utilizing features like grid layout,cards, modal, buttons etc.
+#### e) chart.js 
+It is a great library to create responsive charts.
+#### f) datatables with bootstrap 
+It is used for creating tables which are scalable,dynamic and responsive.
 
 ### 2. Backend
 
