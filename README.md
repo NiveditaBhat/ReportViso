@@ -1,7 +1,7 @@
 ![alt text](https://github.com/NiveditaBhat/ReportViso/blob/d3f31699be1ef01e10401ff4d924c0d46be22a87/src/assets/logo.PNG)
 
 
-# ReportViso
+## ReportViso
 
 ReportViso is a weld report visualization tool created with MEAN stack technologies
 
@@ -11,15 +11,15 @@ Following are the technologies used in ReportViso.
 
 1.Front End 
 
-a)Angular 6  - It is used as the backbone for front end of the website. 
+-a)Angular 6  - It is used as the backbone for front end of the website. 
 The following some of the features of angular are used to design a responsive website
-•	Modules,Components,services
-•	Data binding
-•	Http client 
-•	Interceptors
-•	Observers
-•	Routing
-•	Forms
+-•	Modules,Components,services
+-•	Data binding
+-•	Http client 
+-•	Interceptors
+-•	Observers
+-•	Routing
+-•	Forms
 b) d3.js – It is a javascript library for 2D visualizations. It is used to create 2D graph (svg) for visualizing weld points and curves.
 c) gui.dat.js – It is used for creating the interactive panel for interacting with 2D graph of weld points.
 d) Bootstrap 4 – It is used for styling the website by utilizing features like grid layout,cards, modal, buttons etc.
