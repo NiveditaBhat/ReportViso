@@ -1,3 +1,6 @@
+![alt text](https://github.com/NiveditaBhat/ReportViso/blob/d3f31699be1ef01e10401ff4d924c0d46be22a87/src/assets/logo.PNG)
+
+
 # ReportViso
 
 ReportViso is a weld report visualization tool created with MEAN stack technologies
