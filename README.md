@@ -1,6 +1,6 @@
-# TwoDviewer
+# ReportViso
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+ReportViso is a weld report visualization tool created with MEAN stack technologies
 
 ## Development server
 
