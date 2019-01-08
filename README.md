@@ -12,7 +12,7 @@ Following are the technologies used in ReportViso.
 
 1.Front End 
 
-a)Angular 6  - It is used as the backbone for front end of the website. 
+### a)Angular 6  - It is used as the backbone for front end of the website. 
 The following some of the features of angular are used to design a responsive website
 * Modules,Components,services
 * Data binding
@@ -21,19 +21,22 @@ The following some of the features of angular are used to design a responsive we
 * Observers
 * Routing
 * Forms
-b) d3.js – It is a javascript library for 2D visualizations. It is used to create 2D graph (svg) for visualizing weld points and curves.
-c) gui.dat.js – It is used for creating the interactive panel for interacting with 2D graph of weld points.
-d) Bootstrap 4 – It is used for styling the website by utilizing features like grid layout,cards, modal, buttons etc.
-e) chart.js -  It is a great library to create responsive charts.
-f)datatables with bootstrap – It is used for creating tables which are scalable,dynamic and responsive.
+### b) d3.js – It is a javascript library for 2D visualizations. It is used to create 2D graph (svg) for visualizing weld points and curves.
+### c) gui.dat.js – It is used for creating the interactive panel for interacting with 2D graph of weld points.
+### d) Bootstrap 4 – It is used for styling the website by utilizing features like grid layout,cards, modal, buttons etc.
+### e) chart.js -  It is a great library to create responsive charts.
+### f)datatables with bootstrap – It is used for creating tables which are scalable,dynamic and responsive.
 
 2. Backend
-Nodejs – 
+
+### a)Nodejs
+
 * REST APIs are designed on node js for the CRUD operations – Creating/Saving report,Read/Displaying report,Updating/Renaming Report,Deleting Report
 * Authentication and Authorization of the user is done with JSON Web tockens
 
 3. Database
-MongoDB with Mongoose is the database used to store MR reports and user info as JSON. Database is used to perform basic CRUD operations.
+
+** MongoDB with Mongoose is the database used to store MR reports and user info as JSON. Database is used to perform basic CRUD operations.
 
 
 ## Code scaffolding
