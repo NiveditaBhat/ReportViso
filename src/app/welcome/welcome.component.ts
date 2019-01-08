@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router , NavigationEnd } from '@angular/router';
+declare const jquery: any;
+declare const $: any;
 
 @Component({
   selector: 'app-welcome',
@@ -12,6 +14,8 @@ export class WelcomeComponent implements OnInit {
 
 
   ngOnInit() {
+
+
 
     this.router.events.subscribe(s => {
       if (s instanceof NavigationEnd) {

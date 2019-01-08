@@ -12,7 +12,7 @@ import { AuthService } from "../auth/auth/auth.service";
 export class ReportService {
   private report = new Report()  ;
 
-backendUrl = 'http://localhost:3000/';
+backendUrl = '/';
 private reports: Report[];
  panelLoaded = new Subject();
  panelUnLoaded = new Subject();

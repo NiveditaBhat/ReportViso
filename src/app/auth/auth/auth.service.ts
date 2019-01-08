@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthService {
   authStatus = new Subject<boolean>();
-  backendURL = 'http://localhost:3000/';
+  backendURL = '/';
   isAuthenticated = false;
 private token;
 private tokenTimer ;

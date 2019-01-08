@@ -92,9 +92,10 @@ const drag = d3.behavior.drag()
     // Adds the svg canvas
     const svg = d3.select(viewer).append('svg')
    .attr('preserveAspectRatio', 'xMinYMin meet')
-.attr('viewBox', '0 0 960 500')
+.attr('viewBox', '0 0 960 960')
+.classed('svg-content', true)
     //  .attr('width', width + margin.left + margin.right)
-     // .attr('height', height + margin.top + margin.bottom)
+  // .attr('height', height + margin.top + margin.bottom)
       .append('g')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
       .call(zoom);

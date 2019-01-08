@@ -1,5 +1,46 @@
+/*@media (min-width: 576px) {
+  h1{
+    font-size:50px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
 
 
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+*/ /*
+@media (min-width: 300px) {
+  h1{
+    font-size:2wh;
+  }
+}
+
+@media (min-width: 576px) {
+  h1{
+    font-size:0.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  h1{
+    font-size:0.1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  h1 {
+    font-size:5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  h1 {
+    font-size:10em;
+  }
+}*/
 
 
 html, body {

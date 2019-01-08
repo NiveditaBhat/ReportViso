@@ -11,7 +11,7 @@ background-position: center bottom;
 
 .what {
   background-color:#08476617;
-  padding:4%;
+  padding:6%;
 
 }
 
@@ -19,12 +19,30 @@ background-position: center bottom;
 
 
   background-color:#f1f7fd;
-padding:3%;
+padding:1%;
+
 
 }
 
+.circle {
+  display: inline-block;
+  border-radius: 60px;
+  box-shadow: 0px 0px 2px grey;
+  padding: 0.5em 0.6em;
+
+}
+
+.ftr {
+
+  padding:9px;
+}
+
+.inctm {
+color:grey;
+}
+
 .slider {
-  background-color:#08476659;
+  background:linear-gradient(#053147,#053147ca,#05405d);
   padding:3%;
   color:black;
 }
@@ -77,9 +95,7 @@ headerCstm {
   padding:2%;
 }
 
-.carousel-inner img {
-  margin: auto;
-}
+
 
 .card {
 background-color:#f2f7fa;
@@ -113,6 +129,8 @@ text-align:center;
 .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23505050' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
+
+
 
 .carousel-indicators li{
   background-color: grey;
@@ -155,4 +173,52 @@ left: 0;
 
 .listCstm {
   padding-top:10px;
+}
+
+
+
+
+@media screen and (max-width: 1200px) {
+  h2 {
+     font-size: 40px;
+   }
+
+  h3 {
+    font-size: 35px;
+  }
+  h4 {
+    font-size: 31px;
+  }
+ }
+
+
+@media screen and (max-width: 720px) {
+  h2 {
+     font-size: 25px;
+   }
+   h2 {
+    font-size: 23px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  h4 {
+    font-size: 17px;
+  }
+ }
+
+ #owl-demo .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+
+.carousel-inner {
+width:70%;
+height:100%;
+margin-left:auto;
+margin-right:auto;
+
 }
