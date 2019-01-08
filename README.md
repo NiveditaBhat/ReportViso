@@ -1,16 +1,18 @@
 ![alt text](https://github.com/NiveditaBhat/ReportViso/blob/master/src/assets/logo.PNG)
 
-[Demo](http://reportviso-env.rp2pp9hekv.eu-central-1.elasticbeanstalk.com)
+### [Demo](http://reportviso-env.rp2pp9hekv.eu-central-1.elasticbeanstalk.com)
 
 # ReportViso
 
-ReportViso is a weld report visualization tool created with MEAN stack technologies
+ReportViso is a weld report (MR Report) visualization tool created with MEAN stack technologies. Traditionally, MR reports are viewed on CAD (Computer Aided Design) software like NX which are licensed and sometimes slow while displaying heavy content. ReportViso is developed with open source JavaScript Frameworks like angular, node, d3 which are fast and responsive. It’s not heavy on your computer hardware and is freely available. It is no replacement to CAD but a first step towards developing web based visualizing tools independent of CAD.
+
+ReportViso is designed to showcase the the kind of work I have done in past as a web developer. Its an effort to create a prototype or a mockup of the projects I have been associated with. 
 
 ## Built with 
 
 ### 1.Front End 
 
-#### a)Angular 6  - It is used as the backbone for front end of the website. 
+#### a) Angular 6  - It is used as the backbone for front end of the website. 
 The following some of the features of angular are used to design a responsive website
 * Modules,Components,services
 * Data binding
@@ -27,7 +29,7 @@ The following some of the features of angular are used to design a responsive we
 
 ### 2. Backend
 
-#### a)Nodejs
+#### a) Nodejs
 
 * REST APIs are designed on node js for the CRUD operations – Creating/Saving report,Read/Displaying report,Updating/Renaming Report,Deleting Report
 * Authentication and Authorization of the user is done with JSON Web tockens
