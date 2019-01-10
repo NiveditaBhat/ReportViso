@@ -47,6 +47,12 @@ It is used for creating tables which are scalable,dynamic and responsive.
 
 * MongoDB with Mongoose is the database used to store MR reports and user info as JSON. Database is used to perform basic CRUD operations.
 
+### 4. Deployment
+
+#### a) AWS - Elastick Bean Stalk
+
+* Elastick Bean stalk is used for deploying the application on node.js server.
+
 
 ## Code scaffolding
 
