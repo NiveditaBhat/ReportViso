@@ -12,13 +12,13 @@ export class LoaderComponent implements OnInit,OnDestroy {
   constructor() { }
 
   ngOnInit() {
-    document.getElementById('modalLauncher').click();
+    document.getElementById('launcher').click();
   }
 
   ngOnDestroy() {
-   // $('#basicExampleModal').modal('hide');
+   // $('#loader').modal('hide');
    $('.modal-backdrop').remove();
-   $('#basicExampleModal').remove();
+   $('#loader').remove();
    $('body').css({paddingRight: '0'});
    $('body').removeClass('modal-open');
   }

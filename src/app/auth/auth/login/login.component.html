@@ -26,11 +26,10 @@
     </div>
 
     <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid" data-target="#myModal">Login</button>
-    <app-dialog *ngIf="loginFailed"   [message]="'Incorrect Email/Password. Please try again'"  [title]="'Login Failed!'"></app-dialog>
+    <app-dialog *ngIf="loginFailed"   [message]="'Please try again with a valid Email and Password'"  [title]="'Login Failed!'"></app-dialog>
 
-    <!-- The Modal
-    <app-dialog [myForm]="loginForm" [message]="'Please click OK to continue'"  [title]="'You have successfully signed up with ReportViso'" *ngIf="signupForm.submitted" ></app-dialog> -->
-  </form>
+
+    </form>
 
 <app-loader *ngIf="loader"></app-loader>
 

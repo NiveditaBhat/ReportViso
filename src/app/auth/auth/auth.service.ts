@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { User } from './user.model';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
   authStatus = new Subject<boolean>();
-  backendURL = '/';
+  backendURL = 'http://localhost:3000/';
   isAuthenticated = false;
 private token;
 private tokenTimer ;
@@ -40,8 +40,15 @@ getToken(){
   }
 
   authenticateUser(user: User) {
+
 return this.http.post<{message: string, token: string,
   expiresIn: number, userId: string}>(this.backendURL + 'api/user/login', user);
+  }
+
+  guestUserLogin() {
+    const params = new HttpParams().set('guest', 'true');
+return this.http.post<{message: string, token: string,
+      expiresIn: number, userId: string}>(this.backendURL + 'api/user/login', null, {params});
   }
 
   getAuthStatus() {
