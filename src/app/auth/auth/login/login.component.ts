@@ -38,6 +38,9 @@ error => {
 const user = {'email' : email, 'password': password};
    this.authService.authenticateUser(user).subscribe(
      (response) => {
+      this.loader = false;
+
+    this.loginFailed = false;
 this.onAuthentication(response);
      },
      error => {
