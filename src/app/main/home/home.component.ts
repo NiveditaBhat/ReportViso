@@ -17,6 +17,7 @@ import { Report } from '../report.model';
 export class HomeComponent implements OnInit, AfterViewInit {
 reportList ;
 selected;
+noPie = false;
 public context: CanvasRenderingContext2D;
 @ViewChild('myChart1') myCanvas: ElementRef;
 @ViewChild('myChart2') lineGraph: ElementRef;
@@ -31,7 +32,7 @@ const currentTime = new Date();
 this.loader = true;
     this.selected = '';
     this.reportList = [];
-    this.reportList = this.reportService.fetchReports();
+    this.reportService.fetchReports();
 
     this.reportService.getReportsChangedListener().subscribe(
       ({reports: reportList}) => {
@@ -48,8 +49,13 @@ this.loader = true;
         });
         console.log(this.reportQual);
         const pieData = [this.reportQual['poor'], this.reportQual['medium'], this.reportQual['good']];
+      if(reportList.length > 0) {
         this.drawPieChart(this.myCanvas.nativeElement, pieData);
-
+      }
+      else
+      {
+        this.noPie = true;
+      }
                 }
 
 

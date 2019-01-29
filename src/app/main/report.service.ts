@@ -13,12 +13,16 @@ export class ReportService {
   private report = new Report()  ;
   backendUrl = 'http://localhost:3000/';
 
-private reports: Report[];
+private reports: Report[] = [];
  panelLoaded = new Subject();
  panelUnLoaded = new Subject();
 private reportsChanged = new Subject<{reports: Report[]}>();
 constructor(private http: HttpClient, private authService: AuthService) {
 
+}
+
+getReportCount() {
+  return this.reports.length;
 }
 
 onFileSelect(event: Event) {

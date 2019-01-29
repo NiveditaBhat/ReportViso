@@ -18,6 +18,7 @@ export class DialogComponent implements OnInit, OnDestroy {
   @Output() reportSave = new EventEmitter<string>();
   @Output() newReportSubmitted = new EventEmitter();
   @Output() okClicked = new EventEmitter<void>();
+  @Output() closeClicked = new EventEmitter<void>();
   loader = false;
  // @ViewChild('reportName') reportName: ElementRef;
 
@@ -40,11 +41,16 @@ export class DialogComponent implements OnInit, OnDestroy {
     this.okClicked.emit();
   }
 
+  onCloseClicked() {
+this.closeClicked.emit();
+  }
+
   onSaveReport(form: NgForm) {
     this.reportSave.emit(form.form.value.reportName);
 
 
   }
+
 
 
   onFileUpload(event: Event) {

@@ -1,4 +1,4 @@
-
+<div *ngIf="!noPie;else nopiechart">
 <div class="row ">
     <div class="col-sm-4 brief"  >
 <div class="card  rounded " >
@@ -106,8 +106,21 @@
 
           </div>
           </div>
+</div>
+          <ng-template #nopiechart>
+            <div class="row noreport">
+              <div class="col-sm-12">
+                <div class="card">
+                  <div class="card-body">
+                   <h4> No Recent Activity</h4>
+                    <hr class="norepo">
+                    Please <a [routerLink]="'/main/reportList'"> add new report </a> to start report visualization
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-
+              </ng-template>
 
 
 

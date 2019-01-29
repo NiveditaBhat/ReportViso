@@ -77,4 +77,9 @@ this.reportId = '';
     this.saveDialog = false;
     console.log('save');
   }
+
+  onClose() {
+this.saveDialog = false;
+
+  }
 }

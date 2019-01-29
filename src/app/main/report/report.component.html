@@ -13,7 +13,7 @@
     </div>
     <hr>
 
-<app-dialog *ngIf="saveDialog"  [textbox]="textbox" [message]="message"  [title]="title" (reportSave)="onReportSave($event)" (okClicked)="onOk($event)" ></app-dialog>
+<app-dialog *ngIf="saveDialog"  [textbox]="textbox" [message]="message"  [title]="title" (reportSave)="onReportSave($event)" (okClicked)="onOk($event)" (closeClicked)="onClose($event)" ></app-dialog>
 
 
 

@@ -24,6 +24,8 @@ newRepo = false;
 
   ngOnInit() {
 this.loader = true;
+this.delDialog = false;
+this.newRepo = false;
 this.reportList = [];
     this.reportService.fetchReports();
     this.reportService.getReportsChangedListener().subscribe(
@@ -59,6 +61,7 @@ this.loader = false;
       }
 
       reportSubmitted() {
+        this.newRepo = false;
         this.router.navigate(['/main/report/summary'], {relativeTo: this.activatedRouter});
       //  this.router.navigate(['main/report', {outlets: {primary: ['SummaryComponent'],
        // secondchild: ['SidepanelComponent']}}]);
@@ -73,13 +76,16 @@ this.loader = false;
   }
 
   onVisualizeExisting(){
+    this.delDialog = false;
     this.newRepo = true;
-this.title = 'Please upload a new report';
 
+this.title = 'Please upload a new report';
+this.message = '';
   }
 
   onDeleteClicked() {
     this.delDialog = true;
+    this.newRepo = false;
 this.title = '';
     this.message = 'Are you sure You want to Delete the selected Reports ?';
 
@@ -153,7 +159,15 @@ reportId = this.reportList[i].id;
 
         }
       );
+this.delDialog = false;
+  }
 
+  onCloseDel(event:Event) {
+    this.delDialog = false;
+  }
+
+  onCloseNewRepo(event:Event) {
+    this.newRepo = false;
   }
 
 }

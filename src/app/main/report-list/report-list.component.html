@@ -74,6 +74,6 @@
 <br/>
 <br/>
 <br/>
-<app-dialog *ngIf="delDialog"  [message]="message"  [title]="title"  (okClicked)="onOk($event)" ></app-dialog>
-<app-dialog *ngIf="newRepo"  [upload]="true"  [title]="title"  (newReportSubmitted)="reportSubmitted($event)" ></app-dialog>
+<app-dialog *ngIf="delDialog"  [message]="message"  [title]="title"  (okClicked)="onOk($event)" (closeClicked)="onCloseDel($event)" ></app-dialog>
+<app-dialog *ngIf="newRepo"  [upload]="true"  [title]="title"  (newReportSubmitted)="reportSubmitted($event)" (closeClicked)="onCloseNewRepo($event)" ></app-dialog>
 <app-loader *ngIf="loader"></app-loader>

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const mongooseValidator = require('mongoose-unique-validator');
 const reportSchema = mongoose.Schema({
-  name: {type: String, required: true, unique:true},
+  name: {type: String, required: true},
   lastModi:{type: Date, required: true},
   fileTyp:{type: String, required: true},
   quality:{type: String, required: true},
@@ -23,4 +23,6 @@ const reportSchema = mongoose.Schema({
   creator: {type:mongoose.Schema.Types.ObjectId,ref:'User', required:true}
 });
 reportSchema.plugin(mongooseValidator);
+reportSchema.index({ name: 1, creator: 1}, { unique: true });
+
 module.exports = mongoose.model('Report',reportSchema);
