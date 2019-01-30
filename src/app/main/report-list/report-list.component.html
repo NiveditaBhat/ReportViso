@@ -1,5 +1,5 @@
 
-  <div class="row pl-2 pr-2 " >
+  <div class="row pl-2 pr-2 " *ngIf="reportList.length > 0">
       <div class="col-sm-12 mt-2 mr-2 ml-2  border " >
 <h5 *ngIf="reportList.length > 0" style="background-color:#014894;color:white">Your Reports</h5>
                   <table    id="reportList" class="table   "   width="100%" *ngIf="reportList.length > 0">
@@ -49,27 +49,28 @@
 
 
 
-<div class="row noReport" *ngIf="reportList.length == 0">
-  <div class="col-sm-12" style="padding:6%">
-
-          <h5> You have no reports to be displayed</h5>
-          <hr style="padding:5px;width:50%;margin:auto">
-
-        <h6 style="padding:1%">Please upload a weld report to start visualizing</h6>
-        <button id="visualize" class="btn btn-primary" type="button"  (click)="onVisualizeExisting()" >Visualize New Report</button>
-
-      </div>
-
-
-
-
-</div>
 
 <hr>
         </div>
       </div>
 
 
+      <div class="row h-75 " *ngIf="reportList.length == 0">
+        <div class="col-sm-12 noReport my-auto mx-auto;" style="padding:6%">
+
+      <h5> You have no reports to be displayed</h5>
+      <hr style="padding:5px;width:50%;margin:auto">
+
+    <h6 style="padding:1%">Please upload a weld report to start visualizing</h6>
+    <button id="visualize" class="btn btn-primary" type="button"  (click)="onVisualizeExisting()" >Visualize New Report</button>
+
+
+            </div>
+
+
+
+
+      </div>
 <br/>
 <br/>
 <br/>

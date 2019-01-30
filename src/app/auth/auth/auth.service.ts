@@ -3,11 +3,13 @@ import { User } from './user.model';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment.prod';
+
 
 @Injectable()
 export class AuthService {
   authStatus = new Subject<boolean>();
-  backendURL = 'http://localhost:3000/';
+  backendURL = environment.apiUrl;
   isAuthenticated = false;
 private token;
 private tokenTimer ;

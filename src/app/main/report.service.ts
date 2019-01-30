@@ -5,13 +5,15 @@ import { Report } from "./report.model";
 import { Subject } from "rxjs";
 import {map} from 'rxjs/operators';
 import { AuthService } from "../auth/auth/auth.service";
+import { environment } from "../../environments/environment.prod";
+
 
 
 @Injectable()
 
 export class ReportService {
   private report = new Report()  ;
-  backendUrl = 'http://localhost:3000/';
+  backendUrl = environment.apiUrl;
 
 private reports: Report[] = [];
  panelLoaded = new Subject();
